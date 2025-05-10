@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import './Homepage.css';
 
 const HomePage = () => {
 
