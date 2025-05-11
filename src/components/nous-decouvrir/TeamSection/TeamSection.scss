@@ -1,0 +1,90 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.team-section {
+  padding: $spacing-xl 0;
+  background-color: $color-white;
+  
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto $spacing-xl;
+    
+    .section-title {
+      @include typography-h2;
+      color: $color-text-dark;
+      margin-bottom: $spacing-md;
+    }
+    
+    .section-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: $color-text-light;
+    }
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-lg;
+    
+    @include max-width(lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include max-width(sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .team-member-card {
+    @include card;
+    overflow: hidden;
+    transition: transform $transition-base, box-shadow $transition-base;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+      
+      .member-image {
+        transform: scale(1.05);
+      }
+    }
+    
+    .member-image-container {
+      height: 250px;
+      overflow: hidden;
+      
+      .member-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-base;
+      }
+    }
+    
+    .member-info {
+      padding: $spacing-md;
+    }
+    
+    .member-name {
+      font-size: 1.3rem;
+      font-weight: $font-weight-semibold;
+      color: $color-text-dark;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .member-role {
+      font-size: 1rem;
+      color: $color-primary;
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .member-bio {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: $color-text-light;
+    }
+  }
+} 

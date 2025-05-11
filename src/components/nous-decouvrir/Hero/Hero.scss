@@ -1,0 +1,56 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-xl 0;
+  
+  @include max-width(lg) {
+    flex-direction: column;
+  }
+  
+  .hero-content {
+    flex: 1;
+    
+    @include max-width(lg) {
+      text-align: center;
+    }
+  }
+  
+  .page-title {
+    @include typography-h1;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+  
+  .hero-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: $color-text-light;
+    margin-bottom: $spacing-md;
+    
+    @include max-width(md) {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .hero-image-container {
+    flex: 1;
+    max-width: 50%;
+    
+    @include max-width(lg) {
+      max-width: 100%;
+      margin-top: $spacing-md;
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-md;
+    }
+  }
+} 

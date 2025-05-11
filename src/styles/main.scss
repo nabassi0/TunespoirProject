@@ -1,0 +1,35 @@
+/* Main Stylesheet */
+
+/* Import abstracts (variables, mixins, functions) */
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+/* Import base styles */
+@import 'base/reset';
+@import 'base/typography';
+
+/* Import layouts */
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
+
+/* Import components */
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/alerts';
+@import 'components/modal';
+@import 'components/dropdown';
+@import 'components/carousel';
+@import 'components/badge';
+@import 'components/loader';
+
+/* Import page-specific styles */
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/donation';
+
+/* Import utilities */
+@import 'utils/utilities'; 

@@ -1,0 +1,65 @@
+.become-partner-section {
+  margin-bottom: 60px;
+  
+  .become-partner-content {
+    background-color: var(--primary-color, #1a73e8);
+    color: white;
+    text-align: center;
+    padding: 60px 40px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .become-partner-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      background-color: white;
+      color: var(--primary-color, #1a73e8);
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .become-partner-content {
+      padding: 40px 20px;
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+} 

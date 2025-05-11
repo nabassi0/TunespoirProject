@@ -1,0 +1,76 @@
+.donation-success {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  
+  .success-icon {
+    font-size: 60px;
+    color: #28a745;
+    margin-bottom: 20px;
+  }
+  
+  .success-title {
+    font-size: 2rem;
+    color: #28a745;
+    margin-bottom: 15px;
+  }
+  
+  .success-message {
+    color: #555;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 25px;
+  }
+  
+  .donation-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    text-align: left;
+    
+    p {
+      margin: 8px 0;
+      color: #444;
+      
+      &:first-child {
+        margin-top: 0;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .btn-donate-again {
+    background-color: var(--primary-color, #1a73e8);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: darken(#1a73e8, 10%);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+    
+    .success-icon {
+      font-size: 50px;
+    }
+    
+    .success-title {
+      font-size: 1.75rem;
+    }
+  }
+} 

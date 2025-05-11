@@ -1,0 +1,144 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.donation-page {
+  padding: 60px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    
+    .page-title {
+      @include typography-h1;
+      color: $color-primary;
+      margin-bottom: $spacing-md;
+    }
+    
+    .page-subtitle {
+      font-size: 1.25rem;
+      color: $color-text-light;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+  
+  .donation-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .donation-form-container {
+    width: 100%;
+  }
+  
+  .payment-form-placeholder {
+    margin-top: $spacing-lg;
+    padding: $spacing-md;
+    border: 2px dashed $color-border;
+    border-radius: $border-radius-md;
+    text-align: center;
+    
+    p {
+      color: $color-text-light;
+      margin-bottom: $spacing-md;
+    }
+    
+    .btn-donate {
+      @include button;
+      @include button-primary;
+      width: 100%;
+      padding: $spacing-md;
+      font-size: 1.1rem;
+    }
+  }
+  
+  .donation-info {
+    @include max-width(lg) {
+      order: -1;
+    }
+    
+    h2 {
+      @include typography-h2;
+      color: $color-text-dark;
+      margin-bottom: $spacing-md;
+    }
+    
+    h3 {
+      font-size: 1.3rem;
+      font-weight: $font-weight-semibold;
+      color: $color-text-dark;
+      margin: $spacing-lg 0 $spacing-sm;
+    }
+    
+    p {
+      color: $color-text-light;
+      line-height: 1.6;
+      margin-bottom: $spacing-md;
+    }
+  }
+  
+  .donation-success {
+    @include card;
+    text-align: center;
+    padding: $spacing-xl;
+    
+    .success-icon {
+      font-size: 4rem;
+      color: $color-success;
+      margin-bottom: $spacing-md;
+    }
+    
+    .success-title {
+      @include typography-h2;
+      color: $color-text-dark;
+      margin-bottom: $spacing-md;
+    }
+    
+    .success-message {
+      font-size: 1.1rem;
+      color: $color-text-light;
+      margin-bottom: $spacing-lg;
+      line-height: 1.6;
+    }
+    
+    .donation-details {
+      background-color: $color-gray-light;
+      border-radius: $border-radius-md;
+      padding: $spacing-md;
+      margin-bottom: $spacing-lg;
+      display: inline-block;
+      
+      p {
+        margin: $spacing-xs 0;
+        color: $color-text-dark;
+        font-weight: $font-weight-medium;
+      }
+    }
+    
+    .btn-donate-again {
+      @include button;
+      @include button-primary;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+} 
