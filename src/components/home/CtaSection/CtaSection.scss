@@ -1,0 +1,90 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.cta-section {
+  padding: $spacing-xxl 0;
+  background-color: $color-primary;
+  position: relative;
+  
+  // Default background gradient if no image provided
+  background-image: linear-gradient(135deg, $color-primary, darken($color-primary, 15%));
+  background-size: cover;
+  background-position: center;
+  
+  .container {
+    @include container;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    color: $color-white;
+  }
+  
+  .cta-title {
+    @include typography-h2;
+    color: $color-white;
+    margin-bottom: $spacing-md;
+    font-weight: $font-weight-bold;
+  }
+  
+  .cta-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+    
+    @include max-width(md) {
+      font-size: 1.1rem;
+    }
+  }
+  
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    
+    @include max-width(sm) {
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-sm;
+    }
+    
+    .btn {
+      min-width: 180px;
+      padding: $spacing-sm $spacing-lg;
+      font-weight: $font-weight-medium;
+      
+      @include max-width(sm) {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
+    .btn-primary {
+      background-color: $color-white;
+      color: $color-primary;
+      border-color: $color-white;
+      
+      &:hover, &:focus {
+        background-color: rgba($color-white, 0.9);
+        border-color: rgba($color-white, 0.9);
+        color: $color-primary;
+      }
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: $color-white;
+      border-color: $color-white;
+      
+      &:hover, &:focus {
+        background-color: rgba($color-white, 0.1);
+        border-color: $color-white;
+        color: $color-white;
+      }
+    }
+  }
+} 

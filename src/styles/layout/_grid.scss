@@ -1,0 +1,180 @@
+/* Grid System Styles */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
+  
+  @include max-width(sm) {
+    padding-right: $spacing-sm;
+    padding-left: $spacing-sm;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
+  
+  @include max-width(sm) {
+    padding-right: $spacing-sm;
+    padding-left: $spacing-sm;
+  }
+}
+
+.container-sm {
+  max-width: 540px;
+}
+
+.container-md {
+  max-width: 720px;
+}
+
+.container-lg {
+  max-width: 960px;
+}
+
+.container-xl {
+  max-width: 1140px;
+}
+
+/* Row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -$spacing-sm;
+  margin-left: -$spacing-sm;
+  
+  @include max-width(sm) {
+    margin-right: -$spacing-xs;
+    margin-left: -$spacing-xs;
+  }
+}
+
+.row-no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+  
+  > .col,
+  > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/* Columns */
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  padding-right: $spacing-sm;
+  padding-left: $spacing-sm;
+  
+  @include max-width(sm) {
+    padding-right: $spacing-xs;
+    padding-left: $spacing-xs;
+  }
+}
+
+@mixin make-column($size, $columns: 12) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    @include make-column($i);
+  }
+}
+
+@include respond-to(sm) {
+  @for $i from 1 through 12 {
+    .col-sm-#{$i} {
+      @include make-column($i);
+    }
+  }
+}
+
+@include respond-to(md) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      @include make-column($i);
+    }
+  }
+}
+
+@include respond-to(lg) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      @include make-column($i);
+    }
+  }
+}
+
+@include respond-to(xl) {
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} {
+      @include make-column($i);
+    }
+  }
+}
+
+/* Column Offsets */
+@mixin make-col-offset($size, $columns: 12) {
+  margin-left: percentage($size / $columns);
+}
+
+@for $i from 0 through 11 {
+  .offset-#{$i} {
+    @include make-col-offset($i);
+  }
+}
+
+@include respond-to(sm) {
+  @for $i from 0 through 11 {
+    .offset-sm-#{$i} {
+      @include make-col-offset($i);
+    }
+  }
+}
+
+@include respond-to(md) {
+  @for $i from 0 through 11 {
+    .offset-md-#{$i} {
+      @include make-col-offset($i);
+    }
+  }
+}
+
+@include respond-to(lg) {
+  @for $i from 0 through 11 {
+    .offset-lg-#{$i} {
+      @include make-col-offset($i);
+    }
+  }
+}
+
+@include respond-to(xl) {
+  @for $i from 0 through 11 {
+    .offset-xl-#{$i} {
+      @include make-col-offset($i);
+    }
+  }
+}
+
+/* Grid with CSS Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: $spacing-md;
+  
+  @include max-width(sm) {
+    grid-gap: $spacing-sm;
+  }
+} 

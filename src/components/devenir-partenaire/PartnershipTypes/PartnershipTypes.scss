@@ -1,0 +1,94 @@
+.types-section {
+  margin-bottom: 60px;
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--heading-color, #222);
+  }
+  
+  .partnership-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    
+    .partnership-card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .partnership-image-container {
+        height: 200px;
+        overflow: hidden;
+        
+        .partnership-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        
+        &:hover .partnership-image {
+          transform: scale(1.05);
+        }
+      }
+      
+      .partnership-content {
+        padding: 25px;
+        
+        .partnership-title {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: #333;
+        }
+        
+        .partnership-description {
+          color: #666;
+          line-height: 1.5;
+          margin-bottom: 20px;
+          min-height: 75px;
+        }
+        
+        .partnership-link {
+          display: inline-flex;
+          align-items: center;
+          color: var(--primary-color, #1a73e8);
+          font-weight: 600;
+          text-decoration: none;
+          
+          svg {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+          }
+          
+          &:hover svg {
+            transform: translateX(4px);
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .partnership-types {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .partnership-types {
+      grid-template-columns: 1fr;
+    }
+  }
+} 

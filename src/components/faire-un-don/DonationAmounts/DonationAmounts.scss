@@ -1,0 +1,130 @@
+@import '../../../styles/abstracts/variables';
+@import '../../../styles/abstracts/mixins';
+
+.donation-amounts {
+  margin-bottom: $spacing-lg;
+  
+  .donation-type-selector {
+    margin-bottom: $spacing-md;
+    
+    .donation-type-label {
+      display: block;
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-sm;
+      color: $color-text-dark;
+    }
+    
+    .donation-type-buttons {
+      display: flex;
+      gap: $spacing-sm;
+      
+      @include max-width(sm) {
+        flex-direction: column;
+      }
+      
+      .donation-type-btn {
+        flex: 1;
+        padding: $spacing-sm $spacing-md;
+        border: 2px solid $color-border;
+        border-radius: $border-radius-md;
+        background-color: $color-white;
+        color: $color-text-dark;
+        font-weight: $font-weight-medium;
+        text-align: center;
+        cursor: pointer;
+        transition: all $transition-base;
+        
+        &:hover {
+          background-color: $color-gray-light;
+        }
+        
+        &.active {
+          border-color: $color-primary;
+          background-color: $color-primary-light;
+          color: $color-primary;
+        }
+        
+        @include max-width(sm) {
+          padding: $spacing-sm;
+        }
+      }
+    }
+  }
+  
+  .donation-amount-selector {
+    .donation-amount-label {
+      display: block;
+      font-weight: $font-weight-medium;
+      margin-bottom: $spacing-sm;
+      color: $color-text-dark;
+    }
+    
+    .amount-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-sm;
+      
+      @include max-width(md) {
+        grid-template-columns: 1fr;
+      }
+      
+      .amount-btn {
+        padding: $spacing-md;
+        border: 2px solid $color-border;
+        border-radius: $border-radius-md;
+        background-color: $color-white;
+        color: $color-text-dark;
+        font-size: 1.1rem;
+        font-weight: $font-weight-medium;
+        text-align: center;
+        cursor: pointer;
+        transition: all $transition-base;
+        
+        &:hover {
+          background-color: $color-gray-light;
+        }
+        
+        &.active {
+          border-color: $color-primary;
+          background-color: $color-primary-light;
+          color: $color-primary;
+        }
+      }
+      
+      .custom-amount {
+        position: relative;
+        
+        .custom-amount-input {
+          width: 100%;
+          padding: $spacing-md;
+          border: 2px solid $color-border;
+          border-radius: $border-radius-md;
+          font-size: 1.1rem;
+          transition: all $transition-base;
+          padding-right: 2.5rem;
+          
+          &:focus, &.active {
+            border-color: $color-primary;
+            outline: none;
+          }
+          
+          &.active {
+            background-color: $color-primary-light;
+            color: $color-primary;
+          }
+        }
+        
+        .euro-symbol {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $color-text-light;
+          font-size: 1.1rem;
+          font-weight: $font-weight-medium;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+} 

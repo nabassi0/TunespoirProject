@@ -1,0 +1,93 @@
+.testimonials-section {
+  margin-bottom: 60px;
+  
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--heading-color, #222);
+  }
+  
+  .testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 30px;
+    
+    .testimonial-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+      
+      .quote-container {
+        margin-bottom: 20px;
+        
+        .quote {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: #555;
+          font-style: italic;
+        }
+      }
+      
+      .testimonial-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        .testimonial-info {
+          .testimonial-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+          }
+          
+          .testimonial-role {
+            font-size: 0.9rem;
+            color: #777;
+          }
+        }
+        
+        .testimonial-logo {
+          max-width: 120px;
+          
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .testimonials-container {
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .testimonials-container {
+      grid-template-columns: 1fr;
+      
+      .testimonial-card {
+        .testimonial-footer {
+          flex-direction: column;
+          align-items: flex-start;
+          
+          .testimonial-info {
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+} 
