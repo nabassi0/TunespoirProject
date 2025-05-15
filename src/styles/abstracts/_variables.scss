@@ -1,9 +1,11 @@
+@use "sass:color";
 // Color variables
 $color-primary: #0C8BC9;
 $color-primary-dark: #0a6fa1;
 $color-primary-light: #e6f4fa;
 $color-secondary: #4CAF50;
 $color-secondary-dark: #3d8b40;
+$color-accent: #FF8C00; // Orange accent color for CTAs
 $color-text-dark: #333333;
 $color-text-light: #666666;
 $color-background: #f8f9fa;

@@ -5,24 +5,28 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  box-shadow: none;
   transition: all 0.3s ease;
   height: 80px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .site-header.scrolled {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  height: 70px;
+  /* height: 70px; */
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   height: 100%;
 }
 
@@ -30,6 +34,8 @@
 .logo-container {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
+  flex-basis: 30%;
 }
 
 .logo-link {
@@ -44,23 +50,45 @@
 .logo-link:hover {
   color: #0a6fa1;
   text-decoration: none;
+  transform: translateY(-2px);
 }
 
-.logo-icon {
-  font-size: 2rem;
-  margin-right: 0.5rem;
-  color: #4CAF50;
+.logo-image {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transition: none; /* Remove transition for logo */
 }
 
-.logo-text {
-  font-size: 1.5rem;
-  letter-spacing: 0.5px;
+/* Make sure the scrolled logo is the same size */
+.scrolled .logo-image {
+  height: 60px;
+}
+
+@media (max-width: 768px) {
+  .logo-image {
+    height: 100px;
+  }
+  
+  .scrolled .logo-image {
+    height: 100px;
+  }
+}
+
+/* Content on the right side */
+.right-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 /* Navigation styles */
 .main-nav {
   display: flex;
   align-items: center;
+  padding-right: 1.5rem;
 }
 
 .nav-list {
@@ -68,19 +96,33 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
 }
 
 .nav-item {
-  margin: 0 0.5rem;
+  margin: 0 0.4rem;
 }
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.65rem 0.8rem;
   color: #333;
   font-weight: 500;
   position: relative;
   transition: all 0.3s ease;
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
+
+/* Update styles for links on transparent header to be more visible */
+.site-header:not(.scrolled) .nav-link {
+  color: #ffffff;
+  text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
+}
+
+.site-header:not(.scrolled) .nav-link:hover {
+  color: #0C8BC9;
+  text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
 }
 
 .nav-link:hover {
@@ -95,10 +137,10 @@
 .nav-link.active::after {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 30px;
+  width: 20px;
   height: 3px;
   background-color: #0C8BC9;
   border-radius: 1.5px;
@@ -108,12 +150,35 @@
 .header-actions {
   display: flex;
   align-items: center;
+  margin-left: 1rem;
 }
 
 .btn-donate {
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.25rem;
   font-size: 0.9rem;
   margin-right: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #ff8c00, #ff6f00);
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(255, 140, 0, 0.25);
+  border: none;
+}
+
+.btn-donate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4);
+  background: linear-gradient(135deg, #ff9d24, #ff8200);
+  text-decoration: none;
+  color: white;
+}
+
+/* Adjust button styles for transparent header */
+.site-header:not(.scrolled) .btn-donate {
+  background: linear-gradient(135deg, #ff8c00, #ff6f00);
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
 
 /* Mobile menu */
@@ -136,21 +201,36 @@
 
 .menu-overlay {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 /* Media queries for responsiveness */
-@media (max-width: 992px) {
+@media (max-width: 1100px) {
+  .logo-container {
+    margin-right: 2rem;
+  }
+  
   .nav-item {
-    margin: 0 0.25rem;
+    margin: 0 0.2rem;
   }
   
   .nav-link {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.9rem;
+    padding: 0.5rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .main-nav {
+    margin: 0 0.5rem;
   }
   
   .btn-donate {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.9rem;
     font-size: 0.85rem;
   }
 }
@@ -158,18 +238,24 @@
 @media (max-width: 768px) {
   .site-header {
     height: 70px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: fixed; /* Ensure it remains fixed on mobile */
   }
   
   .site-header.scrolled {
-    height: 60px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.95);
   }
   
-  .logo-icon {
-    font-size: 1.75rem;
+  .logo-container {
+    flex-basis: auto;
+    margin-right: auto;
   }
   
-  .logo-text {
-    font-size: 1.25rem;
+  .right-content {
+    flex: 0 0 auto;
   }
   
   .main-nav {
@@ -183,8 +269,8 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 1.5rem;
+    z-index: 1001; /* Higher than the header */
     transition: right 0.3s ease;
-    z-index: 1010;
   }
   
   .main-nav.active {
@@ -202,6 +288,7 @@
     flex-direction: column;
     width: 100%;
     margin-top: 3rem;
+    align-items: flex-start;
   }
   
   .nav-item {
@@ -210,13 +297,18 @@
   }
   
   .nav-link {
-    padding: 0.75rem 0;
+    padding: 0.75rem 1rem;
     width: 100%;
     border-bottom: 1px solid #eee;
   }
   
   .nav-link.active::after {
     display: none;
+  }
+  
+  .nav-link.active {
+    border-left: 3px solid #0C8BC9;
+    padding-left: 0.85rem;
   }
   
   .mobile-menu-toggle {
@@ -236,10 +328,6 @@
 }
 
 @media (max-width: 480px) {
-  .logo-text {
-    font-size: 1.1rem;
-  }
-  
   .btn-donate {
     padding: 0.4rem 0.75rem;
     font-size: 0.8rem;

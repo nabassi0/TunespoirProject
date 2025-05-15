@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .donation-success {
   background-color: white;
   border-radius: 8px;
@@ -58,7 +60,7 @@
     transition: background-color 0.3s ease;
     
     &:hover {
-      background-color: darken(#1a73e8, 10%);
+      background-color: color.scale(#1a73e8, $lightness: -10%);
     }
   }
   

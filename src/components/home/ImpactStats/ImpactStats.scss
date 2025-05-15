@@ -1,5 +1,4 @@
-@import '../../../styles/abstracts/variables';
-@import '../../../styles/abstracts/mixins';
+@use '../../../styles/abstracts' as *;
 
 .impact-section {
   background-color: $color-gray-light;
