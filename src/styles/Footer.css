@@ -31,16 +31,11 @@
   margin-bottom: 1rem;
 }
 
-.footer-logo-icon {
-  font-size: 1.75rem;
-  color: #4CAF50;
-  margin-right: 0.5rem;
-}
-
-.footer-logo-text {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #fff;
+.footer-logo-image {
+  height: 60px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .footer-description {

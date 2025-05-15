@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaLeaf } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import tunespoirLogo from '../assets/images/tunespoir_logo.png';
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -12,8 +13,7 @@ const Footer = () => {
         <div className="footer-main">
           <div className="footer-column footer-about">
             <div className="footer-logo">
-              <FaLeaf className="footer-logo-icon" />
-              <span className="footer-logo-text">AssociaPute</span>
+              <img src={tunespoirLogo} alt="Tunespoir Logo" className="footer-logo-image" />
             </div>
             <p className="footer-description">
               Association dédiée à l'aide aux personnes dans le besoin et au développement de projets solidaires partout dans le monde.
@@ -50,7 +50,7 @@ const Footer = () => {
             <ul className="contact-info">
               <li>123 Rue de la Solidarité</li>
               <li>75001 Paris, France</li>
-              <li>Email: contact@associapute.org</li>
+              <li>Email: contact@tunespoir.org</li>
               <li>Téléphone: +33 1 23 45 67 89</li>
             </ul>
           </div>
@@ -71,7 +71,7 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <div className="copyright">
-            &copy; {currentYear} AssociaPute. Tous droits réservés.
+            &copy; {currentYear} Tunespoir. Tous droits réservés.
           </div>
           <div className="footer-bottom-links">
             <Link to="/mentions-legales">Mentions légales</Link>
