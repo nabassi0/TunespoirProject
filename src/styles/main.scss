@@ -1,8 +1,8 @@
 /* Main Stylesheet */
 
 /* Import abstracts (variables, mixins, functions) */
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
+@use "../../../styles/abstracts" as *;
+@use "../../../styles/abstracts" as *;
 
 /* Import base styles */
 @import 'base/reset';

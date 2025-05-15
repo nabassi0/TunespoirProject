@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .checkout-form {
   background-color: white;
   border-radius: 8px;
@@ -83,7 +85,7 @@
     justify-content: center;
     
     &:hover {
-      background-color: darken(#1a73e8, 10%);
+      background-color: color.scale(#1a73e8, $lightness: -10%);
     }
     
     &:disabled {

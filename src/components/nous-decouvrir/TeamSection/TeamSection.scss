@@ -1,50 +1,50 @@
-@import '../../../styles/abstracts/variables';
-@import '../../../styles/abstracts/mixins';
+@use '../../../styles/abstracts/variables' as vars;
+@use '../../../styles/abstracts/mixins' as mix;
 
 .team-section {
-  padding: $spacing-xl 0;
-  background-color: $color-white;
+  padding: vars.$spacing-xl 0;
+  background-color: vars.$color-white;
   
   .section-header {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto $spacing-xl;
+    margin: 0 auto vars.$spacing-xl;
     
     .section-title {
-      @include typography-h2;
-      color: $color-text-dark;
-      margin-bottom: $spacing-md;
+      @include mix.typography-h2;
+      color: vars.$color-text-dark;
+      margin-bottom: vars.$spacing-md;
     }
     
     .section-description {
       font-size: 1.1rem;
       line-height: 1.6;
-      color: $color-text-light;
+      color: vars.$color-text-light;
     }
   }
   
   .team-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: $spacing-lg;
+    gap: vars.$spacing-lg;
     
-    @include max-width(lg) {
+    @include mix.max-width(lg) {
       grid-template-columns: repeat(2, 1fr);
     }
     
-    @include max-width(sm) {
+    @include mix.max-width(sm) {
       grid-template-columns: 1fr;
     }
   }
   
   .team-member-card {
-    @include card;
+    @include mix.card;
     overflow: hidden;
-    transition: transform $transition-base, box-shadow $transition-base;
+    transition: transform vars.$transition-base, box-shadow vars.$transition-base;
     
     &:hover {
       transform: translateY(-5px);
-      box-shadow: $shadow-lg;
+      box-shadow: vars.$shadow-lg;
       
       .member-image {
         transform: scale(1.05);
@@ -59,32 +59,32 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform $transition-base;
+        transition: transform vars.$transition-base;
       }
     }
     
     .member-info {
-      padding: $spacing-md;
+      padding: vars.$spacing-md;
     }
     
     .member-name {
       font-size: 1.3rem;
-      font-weight: $font-weight-semibold;
-      color: $color-text-dark;
-      margin-bottom: $spacing-xs;
+      font-weight: vars.$font-weight-semibold;
+      color: vars.$color-text-dark;
+      margin-bottom: vars.$spacing-xs;
     }
     
     .member-role {
       font-size: 1rem;
-      color: $color-primary;
-      font-weight: $font-weight-medium;
-      margin-bottom: $spacing-sm;
+      color: vars.$color-primary;
+      font-weight: vars.$font-weight-medium;
+      margin-bottom: vars.$spacing-sm;
     }
     
     .member-bio {
       font-size: 0.95rem;
       line-height: 1.5;
-      color: $color-text-light;
+      color: vars.$color-text-light;
     }
   }
 } 

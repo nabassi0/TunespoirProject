@@ -1,5 +1,4 @@
-@import '../../../styles/abstracts/variables';
-@import '../../../styles/abstracts/mixins';
+@use '../../../styles/abstracts' as *;
 
 .mission-section {
   padding: $spacing-xl 0;

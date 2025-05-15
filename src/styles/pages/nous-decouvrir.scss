@@ -1,5 +1,5 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 .nous-decouvrir-page {
   opacity: 0;
@@ -12,6 +12,6 @@
   }
   
   .container {
-    @include container;
+    @include mix.container;
   }
 } 

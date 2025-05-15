@@ -1,7 +1,14 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+@use '../abstracts' as *;
 
 .home-page {
-  // Add page-specific styles here if needed
-  // Most styles are in the component-specific SCSS files
+  width: 100vw;
+  overflow-x: hidden;
+  
+  .home-content {
+    margin-top: 0;
+    padding-top: $spacing-lg;
+    background-color: $color-white;
+    position: relative;
+    z-index: 10;
+  }
 } 

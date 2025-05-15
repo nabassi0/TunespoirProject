@@ -1,5 +1,5 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 .donation-page {
   padding: 60px 0;
@@ -20,17 +20,17 @@
   
   .page-header {
     text-align: center;
-    margin-bottom: $spacing-xl;
+    margin-bottom: vars.$spacing-xl;
     
     .page-title {
-      @include typography-h1;
-      color: $color-primary;
-      margin-bottom: $spacing-md;
+      @include mix.typography-h1;
+      color: vars.$color-primary;
+      margin-bottom: vars.$spacing-md;
     }
     
     .page-subtitle {
       font-size: 1.25rem;
-      color: $color-text-light;
+      color: vars.$color-text-light;
       max-width: 800px;
       margin: 0 auto;
       line-height: 1.6;
@@ -49,92 +49,92 @@
   }
   
   .payment-form-placeholder {
-    margin-top: $spacing-lg;
-    padding: $spacing-md;
-    border: 2px dashed $color-border;
-    border-radius: $border-radius-md;
+    margin-top: vars.$spacing-lg;
+    padding: vars.$spacing-md;
+    border: 2px dashed vars.$color-border;
+    border-radius: vars.$border-radius-md;
     text-align: center;
     
     p {
-      color: $color-text-light;
-      margin-bottom: $spacing-md;
+      color: vars.$color-text-light;
+      margin-bottom: vars.$spacing-md;
     }
     
     .btn-donate {
-      @include button;
-      @include button-primary;
+      @include mix.button;
+      @include mix.button-primary;
       width: 100%;
-      padding: $spacing-md;
+      padding: vars.$spacing-md;
       font-size: 1.1rem;
     }
   }
   
   .donation-info {
-    @include max-width(lg) {
+    @include mix.max-width(lg) {
       order: -1;
     }
     
     h2 {
-      @include typography-h2;
-      color: $color-text-dark;
-      margin-bottom: $spacing-md;
+      @include mix.typography-h2;
+      color: vars.$color-text-dark;
+      margin-bottom: vars.$spacing-md;
     }
     
     h3 {
       font-size: 1.3rem;
-      font-weight: $font-weight-semibold;
-      color: $color-text-dark;
-      margin: $spacing-lg 0 $spacing-sm;
+      font-weight: vars.$font-weight-semibold;
+      color: vars.$color-text-dark;
+      margin: vars.$spacing-lg 0 vars.$spacing-sm;
     }
     
     p {
-      color: $color-text-light;
+      color: vars.$color-text-light;
       line-height: 1.6;
-      margin-bottom: $spacing-md;
+      margin-bottom: vars.$spacing-md;
     }
   }
   
   .donation-success {
-    @include card;
+    @include mix.card;
     text-align: center;
-    padding: $spacing-xl;
+    padding: vars.$spacing-xl;
     
     .success-icon {
       font-size: 4rem;
-      color: $color-success;
-      margin-bottom: $spacing-md;
+      color: vars.$color-success;
+      margin-bottom: vars.$spacing-md;
     }
     
     .success-title {
-      @include typography-h2;
-      color: $color-text-dark;
-      margin-bottom: $spacing-md;
+      @include mix.typography-h2;
+      color: vars.$color-text-dark;
+      margin-bottom: vars.$spacing-md;
     }
     
     .success-message {
       font-size: 1.1rem;
-      color: $color-text-light;
-      margin-bottom: $spacing-lg;
+      color: vars.$color-text-light;
+      margin-bottom: vars.$spacing-lg;
       line-height: 1.6;
     }
     
     .donation-details {
-      background-color: $color-gray-light;
-      border-radius: $border-radius-md;
-      padding: $spacing-md;
-      margin-bottom: $spacing-lg;
+      background-color: vars.$color-gray-light;
+      border-radius: vars.$border-radius-md;
+      padding: vars.$spacing-md;
+      margin-bottom: vars.$spacing-lg;
       display: inline-block;
       
       p {
-        margin: $spacing-xs 0;
-        color: $color-text-dark;
-        font-weight: $font-weight-medium;
+        margin: vars.$spacing-xs 0;
+        color: vars.$color-text-dark;
+        font-weight: vars.$font-weight-medium;
       }
     }
     
     .btn-donate-again {
-      @include button;
-      @include button-primary;
+      @include mix.button;
+      @include mix.button-primary;
     }
   }
   

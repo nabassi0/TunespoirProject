@@ -38,7 +38,7 @@ const ImpactStats = ({
   ]
 }) => {
   return (
-    <section className="impact-section">
+    <section className="impact-stats-section impact-section">
       <div className="container">
         <h2 className="section-title">{title}</h2>
         <div className="impact-stats">
