@@ -5,6 +5,7 @@ import {
   TeamSection, 
   Timeline 
 } from '../components/nous-decouvrir';
+
 import '../styles/pages/nous-decouvrir.scss';
 
 /**
@@ -20,6 +21,7 @@ const NousDecouvrir = () => {
 
   return (
     <div className={`nous-decouvrir-page ${isVisible ? 'visible' : ''}`}>
+      <img className="nous-decouvrir-background-image" src="https://source.unsplash.com/"groupe-de-femmes-socialiser-travail-dequipe-concept-de-bonheur-g8lRY98j5oM alt="asso" />
       <div className="container">
         <Hero />
         

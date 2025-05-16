@@ -4,6 +4,14 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.nous-decouvrir-background-image
+{
+  width: 100vw;
+  height: 100vh;
 }
 
 .nous-decouvrir-page.visible {
