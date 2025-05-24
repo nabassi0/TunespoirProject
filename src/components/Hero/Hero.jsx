@@ -3,19 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Hero.scss';
 
-/**
- * Hero section component for the home page
- * @param {Object} props - Component props
- * @param {string} props.title - Main title for the hero section
- * @param {string} props.subtitle - Subtitle for the hero section
- * @param {string} props.imageUrl - URL for the hero image
- * @returns {JSX.Element}
- */
-const Hero = ({ 
-  title = "Ensemble, créons un avenir meilleur", 
-  subtitle = "Rejoignez notre mission pour apporter de l'aide humanitaire et du soutien aux communautés les plus vulnérables.",
-  imageUrl = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop"
-}) => {
+const Hero = ({ title, subtitle, imageUrl}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

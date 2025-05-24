@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
-import { 
-  Hero, 
+import {
   AboutTabs, 
   TeamSection, 
   Timeline 
 } from '../components/nous-decouvrir';
-
+import Hero from '../components/Hero/Hero';
 import '../styles/pages/nous-decouvrir.scss';
 
 /**
@@ -21,9 +20,12 @@ const NousDecouvrir = () => {
 
   return (
     <div className={`nous-decouvrir-page ${isVisible ? 'visible' : ''}`}>
-      <img className="nous-decouvrir-background-image" src="https://source.unsplash.com/"groupe-de-femmes-socialiser-travail-dequipe-concept-de-bonheur-g8lRY98j5oM alt="asso" />
+      <Hero
+        title="Nous Découvrir"
+        subtitle="Notre Association"
+        imageUrl="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      />
       <div className="container">
-        <Hero />
         
         <AboutTabs />
         
@@ -35,4 +37,4 @@ const NousDecouvrir = () => {
   );
 };
 
-export default NousDecouvrir; 
+export default NousDecouvrir;

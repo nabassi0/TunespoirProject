@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { 
-  Hero, 
   ImpactStats, 
   MissionAreas, 
   NewsSection, 
   CtaSection 
 } from '../components/home';
+import Hero from '../components/Hero/Hero';
 import '../styles/pages/home.scss';
 
 /**
@@ -37,7 +37,11 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <Hero />
+      <Hero
+        title = "Ensemble, créons un avenir meilleur"
+        subtitle = "Rejoignez notre mission pour apporter de l'aide humanitaire et du soutien aux communautés les plus vulnérables."
+        imageUrl = "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop"
+      />
       
       <div className="home-content">
         <ImpactStats />

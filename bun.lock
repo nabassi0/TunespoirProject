@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "associapute",
+      "name": "tunespoir",
       "dependencies": {
         "@stripe/react-stripe-js": "^3.7.0",
         "@stripe/stripe-js": "^7.3.0",
