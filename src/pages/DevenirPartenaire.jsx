@@ -9,6 +9,8 @@ import {
   FAQSection
 } from '../components/devenir-partenaire';
 import '../styles/pages/devenir-partenaire.scss';
+import { Hero } from '../components/nous-decouvrir';
+import { useLocation } from 'react-router-dom';
 
 const DevenirPartenaire = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -84,17 +86,17 @@ const DevenirPartenaire = () => {
   const testimonials = [
     {
       id: 1,
-      quote: 'Notre partenariat avec AssociaPute a été transformateur, tant pour les communautés que nous avons pu aider ensemble que pour notre propre entreprise. La transparence et le professionnalisme de l\'équipe ont fait de cette collaboration un véritable succès.',
+      quote: 'Notre partenariat avec Tunespoir a été transformateur, tant pour les communautés que nous avons pu aider ensemble que pour notre propre entreprise. La transparence et le professionnalisme de l\'équipe ont fait de cette collaboration un véritable succès.',
       name: 'Marie Dupont',
       role: 'Directrice RSE, Entreprise ABC',
-      logo: 'https://via.placeholder.com/150x80'
+      // logo: 'https://via.placeholder.com/150x80'
     },
     {
       id: 2,
-      quote: 'Depuis 3 ans, nous soutenons les projets d\'accès à l\'eau potable menés par AssociaPute. Au-delà de l\'impact concret sur le terrain, ce partenariat a fédéré nos équipes et renforcé notre culture d\'entreprise autour de valeurs fortes.',
+      quote: 'Depuis 3 ans, nous soutenons les projets d\'accès à l\'eau potable menés par Tunespoir. Au-delà de l\'impact concret sur le terrain, ce partenariat a fédéré nos équipes et renforcé notre culture d\'entreprise autour de valeurs fortes.',
       name: 'Thomas Martin',
       role: 'PDG, Entreprise XYZ',
-      logo: 'https://via.placeholder.com/150x80'
+      // logo: 'https://via.placeholder.com/150x80' 
     }
   ];
 
@@ -119,8 +121,14 @@ const DevenirPartenaire = () => {
 
   return (
     <div className={`devenir-partenaire-page ${isVisible ? 'visible' : ''}`}>
+      <Hero
+        title="Devenir Partenaire"
+        subtitle="Rejoignez-nous dans notre mission d'aide aux plus vulnérables. 
+        Ensemble, nous pouvons avoir un impact significatif et durable sur 
+        les communautés que nous soutenons à travers le monde"
+        imageUrl="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+      />
       <div className="container">
-        <PageHeader />
         
         <BenefitsSection benefits={partnerBenefits} />
         
@@ -136,4 +144,4 @@ const DevenirPartenaire = () => {
   );
 };
 
-export default DevenirPartenaire; 
+export default DevenirPartenaire;

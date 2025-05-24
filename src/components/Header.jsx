@@ -9,6 +9,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const isBlack = (location.pathname === '/actualites', location.pathname === '/nos-partenaires' || location.pathname === '/faq' || location.pathname === '/nous-contacter' || location.pathname === '/faire-un-don');
+
   // Navigation links - all displayed in header
   const navLinks = [
     { name: 'Actualités', path: '/actualites' },
@@ -35,6 +37,12 @@ const Header = () => {
     };
   }, []);
 
+  const navLinkClass = `${isBlack ? 'header-black-letters' : 'header-white-letters'}`;
+
+
+  useEffect(() => {
+    console.log(navLinkClass);
+  }, [navLinkClass]);
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
@@ -64,7 +72,7 @@ const Header = () => {
                 <li key={link.path} className="nav-item">
                   <Link 
                     to={link.path} 
-                    className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+                    className={`nav-link ${location.pathname === link.path ? 'active' : ''}` + navLinkClass}
                   >
                     {link.name}
                   </Link>

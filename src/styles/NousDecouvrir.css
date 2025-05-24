@@ -1,6 +1,5 @@
 /* Nous Découvrir (About Us) page styles */
 .nous-decouvrir-page {
-  padding: 2rem 0;
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease;
@@ -11,39 +10,10 @@
   transform: translateY(0);
 }
 
-/* Hero section */
-.hero-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 4rem;
-  gap: 3rem;
-}
-
-.hero-content {
-  flex: 1;
-}
-
 .page-title {
   color: #0C8BC9;
   margin-bottom: 1.5rem;
   font-size: 2.5rem;
-}
-
-.hero-text {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #555;
-}
-
-.hero-image-container {
-  flex: 1;
-}
-
-.hero-image {
-  width: 100%;
-  max-width: 550px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Tabs section */

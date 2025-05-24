@@ -22,7 +22,7 @@ const NosPartenaires = () => {
     {
       id: 1,
       name: 'Entreprise ABC',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'Leader dans le secteur de la technologie, Entreprise ABC soutient nos projets d\'accès à l\'eau potable depuis 2018.',
       category: 'entreprise',
       website: '#'
@@ -30,7 +30,7 @@ const NosPartenaires = () => {
     {
       id: 2,
       name: 'Fondation XYZ',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'La Fondation XYZ finance nos programmes éducatifs dans plusieurs pays d\'Afrique.',
       category: 'fondation',
       website: '#'
@@ -38,7 +38,7 @@ const NosPartenaires = () => {
     {
       id: 3,
       name: 'Organisation 123',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'Organisation internationale avec laquelle nous collaborons sur le terrain pour des projets de santé maternelle.',
       category: 'ong',
       website: '#'
@@ -46,7 +46,7 @@ const NosPartenaires = () => {
     {
       id: 4,
       name: 'Groupe DEF',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'Le Groupe DEF met à notre disposition ses compétences en ingénierie pour nos projets d\'infrastructures.',
       category: 'entreprise',
       website: '#'
@@ -54,7 +54,7 @@ const NosPartenaires = () => {
     {
       id: 5,
       name: 'Ministère de la Coopération',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'Le Ministère finance certains de nos projets d\'aide d\'urgence dans les zones de conflit.',
       category: 'institution',
       website: '#'
@@ -62,7 +62,7 @@ const NosPartenaires = () => {
     {
       id: 6,
       name: 'Fondation pour l\'Éducation',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'Cette fondation soutient spécifiquement nos programmes de formation professionnelle pour les jeunes.',
       category: 'fondation',
       website: '#'
@@ -70,7 +70,7 @@ const NosPartenaires = () => {
     {
       id: 7,
       name: 'Association Environnement',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'Un partenaire clé pour nos projets de reforestation et de protection de la biodiversité.',
       category: 'ong',
       website: '#'
@@ -78,7 +78,7 @@ const NosPartenaires = () => {
     {
       id: 8,
       name: 'Entreprise GHI',
-      logo: 'https://via.placeholder.com/200x100',
+      // logo: 'https://via.placeholder.com/200x100',
       description: 'Grâce à un programme de produit-partage, cette entreprise contribue au financement de nos actions.',
       category: 'entreprise',
       website: '#'
