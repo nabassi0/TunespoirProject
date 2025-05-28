@@ -1,5 +1,5 @@
-@use '../abstracts/variables' as vars;
-@use '../abstracts/mixins' as mix;
+@use "../abstracts/variables" as vars;
+@use "../abstracts/mixins" as mix;
 
 .donation-page {
   padding: 60px 0;
@@ -7,28 +7,107 @@
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   margin-top: 5vh;
-  
+
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
   }
-  
+
+  .message-banner {
+    display: flex;
+    align-items: center;
+    gap: vars.$spacing-md;
+    padding: vars.$spacing-md vars.$spacing-lg;
+    border-radius: vars.$border-radius-md;
+    margin-bottom: vars.$spacing-xl;
+    position: relative;
+    animation: slideDown 0.5s ease-out;
+
+    &.success {
+      background-color: #e6f4ea;
+      border: 1px solid #34a853;
+      color: #1e7e34;
+
+      .message-icon {
+        color: #34a853;
+      }
+    }
+
+    &.canceled {
+      background-color: #fce8e6;
+      border: 1px solid #ea4335;
+      color: #c5221f;
+
+      .message-icon {
+        color: #ea4335;
+      }
+    }
+
+    .message-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .message-content {
+      flex: 1;
+
+      h3 {
+        margin: 0 0 vars.$spacing-xs;
+        font-size: 1.25rem;
+        font-weight: vars.$font-weight-semibold;
+      }
+
+      p {
+        margin: 0;
+        opacity: 0.9;
+      }
+    }
+
+    .close-button {
+      position: absolute;
+      top: vars.$spacing-sm;
+      right: vars.$spacing-sm;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   .page-header {
     text-align: center;
     margin-bottom: vars.$spacing-xl;
-    
+
     .page-title {
       @include mix.typography-h1;
       color: vars.$color-primary;
       margin-bottom: vars.$spacing-md;
     }
-    
+
     .page-subtitle {
       font-size: 1.25rem;
       color: vars.$color-text-light;
@@ -37,30 +116,30 @@
       line-height: 1.6;
     }
   }
-  
+
   .donation-content {
     display: grid;
     grid-template-columns: 1fr;
     max-width: 800px;
     margin: 0 auto;
   }
-  
+
   .donation-form-container {
     width: 100%;
   }
-  
+
   .payment-form-placeholder {
     margin-top: vars.$spacing-lg;
     padding: vars.$spacing-md;
     border: 2px dashed vars.$color-border;
     border-radius: vars.$border-radius-md;
     text-align: center;
-    
+
     p {
       color: vars.$color-text-light;
       margin-bottom: vars.$spacing-md;
     }
-    
+
     .btn-donate {
       @include mix.button;
       @include mix.button-primary;
@@ -69,77 +148,147 @@
       font-size: 1.1rem;
     }
   }
-  
+
   .donation-info {
     @include mix.max-width(lg) {
       order: -1;
     }
-    
+
     h2 {
       @include mix.typography-h2;
       color: vars.$color-text-dark;
       margin-bottom: vars.$spacing-md;
     }
-    
+
     h3 {
       font-size: 1.3rem;
       font-weight: vars.$font-weight-semibold;
       color: vars.$color-text-dark;
       margin: vars.$spacing-lg 0 vars.$spacing-sm;
     }
-    
+
     p {
       color: vars.$color-text-light;
       line-height: 1.6;
       margin-bottom: vars.$spacing-md;
     }
   }
-  
+
+  .checkout-section {
+    margin-top: vars.$spacing-lg;
+    padding: vars.$spacing-lg;
+    background-color: vars.$color-gray-light;
+    border-radius: vars.$border-radius-md;
+    text-align: center;
+
+    .btn-checkout {
+      @include mix.button;
+      @include mix.button-primary;
+      width: 100%;
+      padding: vars.$spacing-md vars.$spacing-lg;
+      font-size: 1.1rem;
+      font-weight: vars.$font-weight-semibold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: vars.$spacing-sm;
+      position: relative;
+      overflow: hidden;
+
+      &:not(:disabled):hover {
+        transform: translateY(-2px);
+        // box-shadow: 0 5px 15px rgba(vars.$color-primary-rgb, 0.3);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      &.loading {
+        pointer-events: none;
+      }
+
+      .spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+    }
+
+    .secure-payment {
+      margin-top: vars.$spacing-md;
+
+      small {
+        color: vars.$color-text-light;
+        font-size: 0.875rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: vars.$spacing-xs;
+
+        &::before {
+          content: "🔒";
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .donation-success {
     @include mix.card;
     text-align: center;
     padding: vars.$spacing-xl;
-    
+
     .success-icon {
       font-size: 4rem;
       color: vars.$color-success;
       margin-bottom: vars.$spacing-md;
     }
-    
+
     .success-title {
       @include mix.typography-h2;
       color: vars.$color-text-dark;
       margin-bottom: vars.$spacing-md;
     }
-    
+
     .success-message {
       font-size: 1.1rem;
       color: vars.$color-text-light;
       margin-bottom: vars.$spacing-lg;
       line-height: 1.6;
     }
-    
+
     .donation-details {
       background-color: vars.$color-gray-light;
       border-radius: vars.$border-radius-md;
       padding: vars.$spacing-md;
       margin-bottom: vars.$spacing-lg;
       display: inline-block;
-      
+
       p {
         margin: vars.$spacing-xs 0;
         color: vars.$color-text-dark;
         font-weight: vars.$font-weight-medium;
       }
     }
-    
+
     .btn-donate-again {
       @include mix.button;
       @include mix.button-primary;
     }
   }
-  
+
   @media (max-width: 768px) {
     padding: 40px 0;
   }
-} 
+}
