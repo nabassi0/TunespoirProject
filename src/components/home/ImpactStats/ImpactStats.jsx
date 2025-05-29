@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './ImpactStats.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./ImpactStats.scss";
 
 /**
  * Single impact stat component
@@ -18,7 +18,7 @@ const StatItem = ({ number, label }) => (
 
 StatItem.propTypes = {
   number: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
 };
 
 /**
@@ -28,14 +28,14 @@ StatItem.propTypes = {
  * @param {Array} props.stats - Array of stats objects with number and label properties
  * @returns {JSX.Element}
  */
-const ImpactStats = ({ 
-  title = "Notre impact", 
+const ImpactStats = ({
+  title = "Notre impact",
   stats = [
-    { number: "12,000+", label: "Personnes aidées" },
-    { number: "45", label: "Projets réalisés" },
-    { number: "18", label: "Pays d'intervention" },
-    { number: "250+", label: "Bénévoles actifs" }
-  ]
+    { number: "10+", label: "Communautés aidées" },
+    { number: "9", label: "Projets réalisés" },
+    { number: "18", label: "Gouvernorats couverts" },
+    { number: "20", label: "Bénévoles actifs" },
+  ],
 }) => {
   return (
     <section className="impact-stats-section impact-section">
@@ -43,11 +43,7 @@ const ImpactStats = ({
         <h2 className="section-title">{title}</h2>
         <div className="impact-stats">
           {stats.map((stat, index) => (
-            <StatItem 
-              key={index} 
-              number={stat.number} 
-              label={stat.label} 
-            />
+            <StatItem key={index} number={stat.number} label={stat.label} />
           ))}
         </div>
       </div>
@@ -60,9 +56,9 @@ ImpactStats.propTypes = {
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       number: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired
+      label: PropTypes.string.isRequired,
     })
-  )
+  ),
 };
 
-export default ImpactStats; 
+export default ImpactStats;
