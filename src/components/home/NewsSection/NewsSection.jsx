@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import "./NewsSection.scss";
-import EcoleIzdihar from "../../../assets/images/Ecole_Elizdihar.jpg";
+import EcoleIzdihar from "../../../assets/images/Ecole_ElIzdihar.jpg";
 import EcoleJendouba from "../../../assets/images/ecole_jendouba.png";
 import EcoleHabibBourguiba from "../../../assets/images/ecole_habibBourgiba.png";
 
