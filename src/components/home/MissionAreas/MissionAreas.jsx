@@ -1,8 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { FaArrowRight, FaHandHoldingHeart, FaUsers, FaGlobeAfrica } from 'react-icons/fa';
-import './MissionAreas.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import {
+  FaArrowRight,
+  FaHandHoldingHeart,
+  FaUsers,
+  FaGlobeAfrica,
+} from "react-icons/fa";
+import "./MissionAreas.scss";
 
 /**
  * Mission card component
@@ -30,11 +35,11 @@ MissionCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  linkText: PropTypes.string
+  linkText: PropTypes.string,
 };
 
 MissionCard.defaultProps = {
-  linkText: 'En savoir plus'
+  linkText: "En savoir plus",
 };
 
 /**
@@ -44,28 +49,31 @@ MissionCard.defaultProps = {
  * @param {Array} props.missions - Array of mission objects
  * @returns {JSX.Element}
  */
-const MissionAreas = ({ 
+const MissionAreas = ({
   title = "Nos domaines d'action",
   missions = [
     {
       icon: <FaHandHoldingHeart className="mission-icon" />,
-      title: "Aide humanitaire",
-      description: "Nous fournissons une aide d'urgence aux populations touchées par des crises humanitaires, des catastrophes naturelles et des conflits.",
-      link: "/nous-decouvrir"
+      title: "Éducation",
+      description:
+        "Nous participons à la rénovation et à la reconstruction d’écoles, souvent dans un état de délabrement avancé, avec des infrastructures vétustes et mal entretenues.",
+      link: "/nous-decouvrir",
     },
     {
       icon: <FaUsers className="mission-icon" />,
-      title: "Développement communautaire",
-      description: "Nous travaillons en étroite collaboration avec les communautés locales pour créer des solutions durables et renforcer leur résilience.",
-      link: "/nous-decouvrir"
+      title: "Aide sociale et humanitaire",
+      description:
+        "Nous soutenons les familles les plus vulnérables et démunies, en fournissant une aide alimentaire et une aide directe aux enfants afin d'améliorer leurs conditions de vie.",
+      link: "/nous-decouvrir",
     },
     {
       icon: <FaGlobeAfrica className="mission-icon" />,
-      title: "Protection de l'environnement",
-      description: "Nous mettons en œuvre des initiatives pour protéger l'environnement et promouvoir des pratiques durables dans les communautés.",
-      link: "/nous-decouvrir"
-    }
-  ]
+      title: "Développement des infrastructures",
+      description:
+        "Nous contribuons au développement durable et autonome des communautés rurales tunisiennes.",
+      link: "/nous-decouvrir",
+    },
+  ],
 }) => {
   return (
     <section className="mission-section">
@@ -73,7 +81,7 @@ const MissionAreas = ({
         <h2 className="section-title">{title}</h2>
         <div className="mission-areas">
           {missions.map((mission, index) => (
-            <MissionCard 
+            <MissionCard
               key={index}
               icon={mission.icon}
               title={mission.title}
@@ -96,9 +104,9 @@ MissionAreas.propTypes = {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
-      linkText: PropTypes.string
+      linkText: PropTypes.string,
     })
-  )
+  ),
 };
 
-export default MissionAreas; 
+export default MissionAreas;

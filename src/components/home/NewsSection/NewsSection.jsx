@@ -1,8 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { FaArrowRight } from 'react-icons/fa';
-import './NewsSection.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+import "./NewsSection.scss";
+import EcoleIzdihar from "../../../assets/images/Ecole_Elizdihar.jpg";
+import EcoleJendouba from "../../../assets/images/ecole_jendouba.png";
+import EcoleHabibBourguiba from "../../../assets/images/ecole_habibBourgiba.png";
 
 /**
  * News card component
@@ -16,21 +19,17 @@ import './NewsSection.scss';
  * @param {string} props.linkText - Text for the link
  * @returns {JSX.Element}
  */
-const NewsCard = ({ 
-  image, 
-  imageAlt, 
-  date, 
-  title, 
-  excerpt, 
-  link, 
-  linkText 
+const NewsCard = ({
+  image,
+  imageAlt,
+  date,
+  title,
+  excerpt,
+  link,
+  linkText,
 }) => (
   <div className="news-card">
-    <img 
-      src={image} 
-      alt={imageAlt} 
-      className="news-image"
-    />
+    <img src={image} alt={imageAlt} className="news-image" />
     <div className="news-content">
       <span className="news-date">{date}</span>
       <h3 className="news-title">{title}</h3>
@@ -49,11 +48,11 @@ NewsCard.propTypes = {
   title: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
-  linkText: PropTypes.string
+  linkText: PropTypes.string,
 };
 
 NewsCard.defaultProps = {
-  linkText: 'Lire l\'article'
+  linkText: "Lire l'article",
 };
 
 /**
@@ -65,49 +64,52 @@ NewsCard.defaultProps = {
  * @param {Array} props.newsItems - Array of news article objects
  * @returns {JSX.Element}
  */
-const NewsSection = ({ 
+const NewsSection = ({
   title = "Actualités récentes",
   viewAllLink = "/actualites",
   viewAllText = "Voir toutes les actualités",
   newsItems = [
     {
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      imageAlt: "Distribution de nourriture",
+      image: EcoleIzdihar,
+      imageAlt: "Rénovation d'une école",
       date: "12 juin 2023",
-      title: "Distribution de nourriture au Mali",
-      excerpt: "Notre équipe a récemment organisé une distribution de nourriture pour plus de 500 familles dans la région de Mopti.",
-      link: "/actualites"
+      title: "Rénovation de l'école El Izdihar",
+      excerpt:
+        "Notre équipe a réalisé la rénovation de l'école El Izdihar avec une reconstruction de près de 70% de l'école.",
+      link: "/actualites",
     },
     {
-      image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      imageAlt: "Construction d'une école",
+      image: EcoleJendouba,
+      imageAlt: "Reconstruction d'une école",
       date: "28 mai 2023",
-      title: "Inauguration d'une école au Népal",
-      excerpt: "Grâce à vos dons, nous avons pu construire et équiper une nouvelle école qui accueillera plus de 200 enfants.",
-      link: "/actualites"
+      title: "Reconstruction de l'école Chafaï à Jendouba",
+      excerpt:
+        "Grâce à vos dons, nous avons pu construire et équiper une école qui accueillera plus de 200 enfants.",
+      link: "/actualites",
     },
     {
-      image: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-      imageAlt: "Volontaires",
+      image: EcoleHabibBourguiba,
+      imageAlt: "Rénonvation",
       date: "15 mai 2023",
-      title: "Appel à bénévoles pour notre mission d'été",
-      excerpt: "Nous recherchons des volontaires motivés pour participer à notre prochaine mission humanitaire au Sénégal.",
-      link: "/actualites"
-    }
-  ]
+      title: "Rénovation de l'école Habib Bourguiba à Jendouba",
+      excerpt:
+        "Rénovation de l'éblissement en forte dégradation avec 14 salles de classes accueillant 750 élèves.",
+      link: "/actualites",
+    },
+  ],
 }) => {
   return (
     <section className="news-section">
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">{title}</h2>
-          <Link to={viewAllLink} className="view-all">
-            {viewAllText} <FaArrowRight />
-          </Link>
         </div>
+        <Link to={viewAllLink} className="view-all">
+          {viewAllText} <FaArrowRight />
+        </Link>
         <div className="news-grid">
           {newsItems.map((item, index) => (
-            <NewsCard 
+            <NewsCard
               key={index}
               image={item.image}
               imageAlt={item.imageAlt}
@@ -136,9 +138,9 @@ NewsSection.propTypes = {
       title: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
-      linkText: PropTypes.string
+      linkText: PropTypes.string,
     })
-  )
+  ),
 };
 
-export default NewsSection; 
+export default NewsSection;
