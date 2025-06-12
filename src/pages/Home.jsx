@@ -7,6 +7,7 @@ import {
 } from "../components/home";
 import Hero from "../components/Hero/Hero";
 import "../styles/pages/home.scss";
+import ImageHeader from "../assets/images/headerImage.jpg";
 
 /**
  * Home page component composed of reusable sections
@@ -40,7 +41,7 @@ const Home = () => {
       <Hero
         title="Ensemble, faisons reculer la précarité"
         subtitle="Tunespoir est une association qui a pour mission d’apporter une aide directe aux enfants, d’améliorer leurs conditions de vie, d’accompagner leurs familles"
-        imageUrl="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop"
+        imageUrl={ImageHeader}
       />
 
       <div className="home-content">
