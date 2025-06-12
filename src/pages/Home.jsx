@@ -38,7 +38,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <Hero
-        title="Ensemble, créons un avenir meilleur"
+        title="Ensemble, faisons reculer la précarité"
         subtitle="Tunespoir est une association qui a pour mission d’apporter une aide directe aux enfants, d’améliorer leurs conditions de vie, d’accompagner leurs familles"
         imageUrl="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop"
       />
