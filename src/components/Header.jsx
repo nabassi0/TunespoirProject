@@ -9,12 +9,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  const isNosMissionsPage = location.pathname === "/nos-missions";
+
   const isBlack =
-    (location.pathname === "/actualites",
-    location.pathname === "/nos-missions" ||
-      location.pathname === "/faq" ||
-      location.pathname === "/nous-contacter" ||
-      location.pathname === "/faire-un-don");
+    location.pathname === "/actualites" ||
+    isNosMissionsPage ||
+    location.pathname === "/faq" ||
+    location.pathname === "/nous-contacter" ||
+    location.pathname === "/faire-un-don";
 
   // Navigation links - all displayed in header
   const navLinks = [
@@ -54,8 +56,17 @@ const Header = () => {
     setIsMenuOpen(false);
   }, [location]);
 
+  // Conditional class for header background
+  const headerClasses = [
+    "site-header",
+    isScrolled || isNosMissionsPage ? "scrolled" : "", // Apply .scrolled if scrolled OR on /nos-missions
+    isNosMissionsPage ? "force-solid-background" : "", // Specific class for /nos-missions styling if needed beyond .scrolled
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <header className={`site-header ${isScrolled ? "scrolled" : ""}`}>
+    <header className={headerClasses}>
       <div className="header-container">
         <div className="logo-container">
           <Link to="/" className="logo-link">

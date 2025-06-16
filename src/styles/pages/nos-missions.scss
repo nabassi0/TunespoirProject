@@ -1,59 +1,242 @@
+@use "../../components/Hero/Hero.scss"; // Import des styles du composant Hero existant
+
+$header-height: 80px; // Hauteur de la barre de navigation
+$color-primary: #0c8bc9; // Défini ici pour l'utiliser dans ce fichier si non importé globalement
+$color-white: #ffffff;
+
 .nos-missions-page {
-  padding: 60px 0;
+  padding-top: $header-height; // Décale tout le contenu de la page sous la barre de navigation
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  margin-top: 5vh;
+  overflow-x: hidden;
+  background-color: #fcfdff; // Fond de page général très clair, presque blanc
 
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  .page-header {
-    text-align: center;
-    margin-bottom: 40px;
-    h1 {
-      font-size: 2.5rem;
-      color: #333;
+  // Styles spécifiques pour la section héro de cette page
+  // On utilise .hero-section pour hériter des styles de Hero.scss, mais on surcharge le positionnement
+  .hero-section {
+    margin-top: 0 !important; // Annule le margin-top négatif de Hero.scss pour cette page
+    height: 65vh !important; // Hauteur du héro (ajustable, ex: 65% de la hauteur de la fenêtre)
+    width: 100%; // Assure qu'il prend toute la largeur disponible
+    position: relative; // Contexte de positionnement pour les enfants absolus
+    overflow: hidden; // Empêche les enfants de déborder
+    // Les propriétés comme display:flex, align-items:center etc. sont héritées de Hero.scss
+
+    .hero-background-video {
+      position: absolute;
+      top: -10%; // Permet à la vidéo de se déplacer vers le haut sans laisser de vide en haut au début du scroll
+      left: 0;
+      width: 100%;
+      height: 120%; // Vidéo plus haute que son conteneur pour l'effet parallax
+      object-fit: cover; // Couvre la zone, rognage si nécessaire pour maintenir le ratio
+      z-index: 1; // Derrière .hero-overlay (z-index: 2) et .hero-content (z-index: 3) de Hero.scss
+      will-change: transform; // Optimisation pour l'animation de transformation
     }
+    // .hero-overlay et .hero-content / .hero-title hériteront leurs styles de Hero.scss
+
+    // Animation pour le titre du héro
+    .hero-title {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out 0.4s, transform 0.6s ease-out 0.4s; // Délai pour apparaître après le héro
+    }
+    &.visible .hero-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Conteneur pour le contenu principal (grille des missions)
+  .container.page-content-container {
+    max-width: 1140px; // Largeur standard pour le contenu principal
+    margin: 0 auto; // Centrage horizontal
+    padding: 60px 15px 40px 15px; // Réduction du padding bas pour rapprocher la nouvelle section
+    background-color: #fcfdff; // Assure que le contenu a un fond opaque par-dessus la vidéo fixe si elle dépassait
+    position: relative; // Pour s'assurer qu'il est au-dessus de la vidéo en termes de flux normal
+    z-index: 5; // Plus élevé que le héro pour s'assurer qu'il défile par-dessus
   }
 
   .missions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(280px, 1fr)
+    ); // Ajustement pour 3 cartes sur écran large
+    gap: 35px; // Espace entre les cartes de mission
+    margin-bottom: 60px; // Espace après la grille des missions
   }
 
   .mission-card {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px; // Coins arrondis pour un look moderne
+    box-shadow: 0 6px 24px rgba(45, 55, 72, 0.08); // Ombre portée subtile et professionnelle
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.5s ease forwards;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+    &:hover {
+      transform: translateY(-6px); // Effet de soulèvement plus prononcé
+      box-shadow: 0 10px 30px rgba(45, 55, 72, 0.12);
+    }
 
     h2 {
-      font-size: 1.8rem;
-      color: #007bff; // Example primary color
-      margin-bottom: 15px;
+      font-size: 1.6rem; // Taille de titre pour les cartes
+      color: #1a2533; // Couleur de titre foncée, professionnelle
+      margin-bottom: 18px;
+      font-weight: 700; // Gras pour les titres de carte
+      line-height: 1.3;
     }
 
     p {
+      font-size: 0.95rem; // Taille de texte pour la description
+      line-height: 1.7;
+      color: #4a5568; // Gris moyen pour une bonne lisibilité
+    }
+  }
+
+  // Styles pour la nouvelle section de contenu additionnel
+  .additional-content-section {
+    padding: 50px 0;
+    text-align: center;
+    // Animation d'apparition (similaire à interview-video-section)
+    opacity: 0;
+    transform: translateY(40px); // Arrive par le bas
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-bottom: 40px; // Espace avant la section vidéo interview
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .additional-content-text {
+      max-width: 750px;
+      margin: 0 auto 30px auto;
+      h2 {
+        font-size: 2rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      p {
+        font-size: 1.05rem;
+        color: #5a6268;
+        line-height: 1.75;
+        margin-bottom: 15px;
+      }
+    }
+    .additional-content-cta .btn {
+      // Style du bouton harmonisé avec .btn-outline de Hero.scss mais avec couleur primaire
+      min-width: 180px;
+      font-weight: 600;
+      padding: 0.875rem 1.75rem; // ~14px 28px
+      border-radius: 50px; // Cohérent avec Hero.scss
+      font-size: 1rem; // Légèrement plus petit que Hero.scss pour s'adapter au contexte
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block; // Nécessaire pour les boutons Link
+      background-color: transparent;
+      color: $color-primary;
+      border: 2px solid $color-primary;
+
+      &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        transform: translateY(-2px); // Effet de survol léger
+        box-shadow: 0 4px 12px rgba(darken($color-primary, 15%), 0.2);
+      }
+    }
+  }
+
+  // Section pour la vidéo d'interview en bas
+  .interview-video-section {
+    padding: 60px 0 80px 0; // Ajustement du padding
+    background-color: #f7f9fc; // Fond très légèrement bleuté/grisé pour la section
+    position: relative; // Pour s'assurer qu'il est au-dessus de la vidéo en termes de flux normal
+    z-index: 5; // Plus élevé que le héro pour s'assurer qu'il défile par-dessus
+    // Styles pour l'animation d'apparition
+    opacity: 0;
+    transform: translateX(
+      -40px
+    ); // Départ de la gauche (ou de la droite avec valeur positive)
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out 0.2s; // Ajout d'un léger délai
+
+    &.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .interview-video-player-wrapper {
+    max-width: 880px;
+    margin: 0 auto;
+    border-radius: 16px; // Coins arrondis plus prononcés pour le wrapper
+    overflow: hidden; // Crucial pour que le border-radius du wrapper "coupe" la vidéo
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1); // Ombre plus sophistiquée
+  }
+
+  .interview-video-player {
+    display: block; // S'assurer que la vidéo remplit le wrapper
+    width: 100%;
+    height: 100%; // Prend la hauteur du wrapper qui sera définie par le ratio de la vidéo
+    // Plus besoin de border-radius ici si le wrapper le gère avec overflow:hidden
+    // Pas de box-shadow ici, c'est sur le wrapper
+  }
+
+  @media (max-width: 992px) {
+    // Pour tablettes
+    .missions-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .mission-card h2 {
+      font-size: 1.5rem;
+    }
+    .mission-card p {
+      font-size: 0.9rem;
+    }
+    .additional-content-section .additional-content-text h2 {
+      font-size: 1.8rem;
+    }
+    .additional-content-section .additional-content-text p {
       font-size: 1rem;
-      line-height: 1.6;
-      color: #555;
     }
   }
 
   @media (max-width: 768px) {
-    padding: 40px 0;
-    .page-header h1 {
-      font-size: 2rem;
+    .hero-section {
+      height: 55vh !important; // Hauteur du héro réduite sur mobile pour laisser plus de place au contenu
     }
-    .mission-card h2 {
-      font-size: 1.5rem;
+    // Le .hero-title aura son animation appliquée via les styles de base .hero-title
+    // et la classe .visible sur .hero-section
+    .container.page-content-container {
+      padding: 40px 15px 30px 15px;
+    }
+    .missions-grid {
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .additional-content-section {
+      padding: 40px 0;
+      transform: translateY(20px);
+      margin-bottom: 30px;
+      &.is-visible {
+        transform: translateY(0);
+      }
+    }
+    .interview-video-section {
+      padding: 40px 0 60px 0;
+      transform: translateX(-20px);
+      &.is-visible {
+        transform: translateX(0);
+      }
     }
   }
 }
