@@ -31,10 +31,10 @@ StatItem.propTypes = {
 const ImpactStats = ({
   title = "Notre impact",
   stats = [
-    { number: "10+", label: "Communautés aidées" },
-    { number: "9", label: "Projets réalisés" },
-    { number: "18", label: "Gouvernorats couverts" },
-    { number: "20", label: "Bénévoles actifs" },
+    { number: "4+", label: "Ecoles/Lycées rénovées" },
+    { number: "1630", label: "Elèves bénéficiaires des projets" },
+    { number: "6", label: "Hopitaux touchés par votre soutien" },
+    { number: "7", label: "Gouvernorats couverts" },
   ],
 }) => {
   return (

@@ -56,21 +56,21 @@ const MissionAreas = ({
       icon: <FaHandHoldingHeart className="mission-icon" />,
       title: "Éducation",
       description:
-        "Nous participons à la rénovation et à la reconstruction d’écoles, souvent dans un état de délabrement avancé, avec des infrastructures vétustes et mal entretenues.",
+        "Favoriser l’accès à l’éducation et lutter contre la déscolarisation des enfants. Améliorer les conditions de scolarisation des enfants, en réhabilitant l’infrastructure et en rendant le cadre de l’école accueillant et plus sécurisé.",
       link: "/nous-decouvrir",
     },
     {
       icon: <FaUsers className="mission-icon" />,
-      title: "Aide sociale et humanitaire",
+      title: "Améliorer le quotidien des enfants abandonnés",
       description:
-        "Nous soutenons les familles les plus vulnérables et démunies, en fournissant une aide alimentaire et une aide directe aux enfants afin d'améliorer leurs conditions de vie.",
+        "Tunespoir est mobilisée pour contribuer à améliorer le quotidiens des enfants abandonnés. Des actions ponctuelles sont réalisés par Tunespoir tel qu’en 2025, le réaménagement de la salle d’ergothérapie de l’orphelinat de Manouba, Tunisie.",
       link: "/nous-decouvrir",
     },
     {
       icon: <FaGlobeAfrica className="mission-icon" />,
-      title: "Développement des infrastructures",
+      title: "Aide sociale",
       description:
-        "Nous contribuons au développement durable et autonome des communautés rurales tunisiennes.",
+        "Favoriser l’accès à la nourriture, à l’eau potable et aux équipements nécessaires à la préparation et la conservation des aliments. Contribuer à l’accès à un logement décent par l’amélioration des conditions d’hygiène et par la lutte contre l’insalubrité dans les habitats.",
       link: "/nous-decouvrir",
     },
   ],
