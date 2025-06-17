@@ -213,33 +213,7 @@ const AboutTabs = ({
 
   return (
     <>
-      <section className="about-tabs">
-        <div className="tabs-navigation">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="tab-content">
-          {activeTab === "mission" && (
-            <MissionContent missionAreas={missionAreas} />
-          )}
-
-          {activeTab === "values" && <ValuesContent values={values} />}
-
-          {activeTab === "approach" && (
-            <ApproachContent intro={approachIntro} steps={approachSteps} />
-          )}
-        </div>
-      </section>
-
-      {/* Nouvelle section "Qui sommes-nous ?" */}
+      {/* Section "Qui sommes-nous ?" déplacée au début */}
       <section
         ref={whoWeAreRef}
         className={`who-we-are-section ${
@@ -276,6 +250,33 @@ const AboutTabs = ({
             La réponse de Tunespoir a été claire : redonner espoir à la jeunesse
             en investissant dans leur avenir éducatif.
           </p>
+        </div>
+      </section>
+
+      {/* Section des onglets qui suit */}
+      <section className="about-tabs">
+        <div className="tabs-navigation">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              className={`tab-btn ${activeTab === tab.id ? "active" : ""}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="tab-content">
+          {activeTab === "mission" && (
+            <MissionContent missionAreas={missionAreas} />
+          )}
+
+          {activeTab === "values" && <ValuesContent values={values} />}
+
+          {activeTab === "approach" && (
+            <ApproachContent intro={approachIntro} steps={approachSteps} />
+          )}
         </div>
       </section>
     </>
