@@ -37,7 +37,7 @@ TimelineEvent.propTypes = {
  */
 const Timeline = ({ 
   title = "Notre histoire",
-  description = "Depuis notre création, nous avons parcouru un chemin extraordinaire. Découvrez les moments clés qui ont façonné notre organisation.",
+  description = "Fondée en 2013, l'association Tunespoir est née d'une prise de conscience suite à une visite des zones rurales du nord-ouest de la Tunisie. Les membres fondateurs ont été profondément préoccupés par l'extrême pauvreté des habitants de cette région, marquée par un manque d'accès aux soins, un chômage monstrueux, l'absence d'eau courante et des infrastructures scolaires en très mauvais état.",
   events = [
     {
       year: '2010',

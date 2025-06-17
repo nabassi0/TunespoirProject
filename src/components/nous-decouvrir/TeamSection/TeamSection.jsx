@@ -1,6 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './TeamSection.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./TeamSection.scss";
+import Riadh from "../../../assets/images/equipe/riadh.png";
+import Malek from "../../../assets/images/equipe/Malek.png";
+import Mohammed from "../../../assets/images/equipe/mohammed_.png";
+import Momo from "../../../assets/images/equipe/momo.png"; // Assuming you have a local image for Mohamed Samet
 
 /**
  * Team member card component
@@ -14,11 +18,7 @@ import './TeamSection.scss';
 const TeamMemberCard = ({ name, role, bio, image }) => (
   <div className="team-member-card">
     <div className="member-image-container">
-      <img 
-        src={image} 
-        alt={name} 
-        className="member-image" 
-      />
+      <img src={image} alt={name} className="member-image" />
     </div>
     <div className="member-info">
       <h3 className="member-name">{name}</h3>
@@ -32,7 +32,7 @@ TeamMemberCard.propTypes = {
   name: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
 };
 
 /**
@@ -43,39 +43,39 @@ TeamMemberCard.propTypes = {
  * @param {Array} props.teamMembers - Array of team member objects
  * @returns {JSX.Element}
  */
-const TeamSection = ({ 
+const TeamSection = ({
   title = "Notre équipe",
   description = "Passionnés et engagés, les membres de notre équipe travaillent sans relâche pour accomplir notre mission. Découvrez les personnes qui font la différence au quotidien.",
   teamMembers = [
     {
       id: 1,
-      name: 'Sophie Martin',
-      role: 'Présidente',
-      bio: 'Passionnée par l\'aide humanitaire depuis plus de 15 ans, Sophie a travaillé dans de nombreux pays avant de fonder notre association.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
+      name: "Riadh Ben Meftah",
+      role: "Président de l’association",
+      bio: "Passionné par l'humanitaire, Riadh dirige Tunespoir avec une vision claire : éradiquer la pauvreté en Tunisie et au-delà. Son engagement et son expertise guident notre action.",
+      image: Riadh, // Using local image for Riadh
     },
     {
       id: 2,
-      name: 'Thomas Dubois',
-      role: 'Directeur des opérations',
-      bio: 'Expert en logistique humanitaire, Thomas coordonne nos actions sur le terrain et assure l\'efficacité de nos interventions.',
-      image: 'https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
+      name: "Malek Guermazi",
+      role: "Vice Président",
+      bio: "Malek apporte son expertise en gestion de projets humanitaires pour soutenir notre mission. Il est le pilier de notre équipe, garantissant l'efficacité et la transparence de nos actions.",
+      image: Malek, // Using local image for Malek
     },
     {
       id: 3,
-      name: 'Amina Camara',
-      role: 'Responsable des projets',
-      bio: 'Spécialiste du développement durable, Amina conçoit et supervise nos projets pour garantir leur impact positif à long terme.',
-      image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
+      name: "Mohamed Ali Bouacha",
+      role: "Trésorier",
+      bio: "Mohamed Ali est le trésorier de Tunespoir, veillant à la bonne gestion financière de l'association. Son intégrité et son professionnalisme sont essentiels pour assurer la pérennité de nos projets.",
+      image: Mohammed, // Using local image for Mohammed
     },
     {
       id: 4,
-      name: 'Jean Leroy',
-      role: 'Responsable financier',
-      bio: 'Avec son expertise en gestion financière des ONG, Jean assure la transparence et l\'optimisation de nos ressources.',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80'
-    }
-  ]
+      name: "Mohamed Samet",
+      role: "Coordonnateur des actions",
+      bio: "Mohamed Samet est le coordonnateur des actions de Tunespoir. Il supervise nos projets sur le terrain, garantissant leur impact et leur alignement avec notre mission.",
+      image: Momo, // Using local image for Mohamed Samet",
+    },
+  ],
 }) => {
   return (
     <section className="team-section">
@@ -83,10 +83,10 @@ const TeamSection = ({
         <h2 className="section-title">{title}</h2>
         <p className="section-description">{description}</p>
       </div>
-      
+
       <div className="team-grid">
         {teamMembers.map((member) => (
-          <TeamMemberCard 
+          <TeamMemberCard
             key={member.id}
             name={member.name}
             role={member.role}
@@ -108,9 +108,9 @@ TeamSection.propTypes = {
       name: PropTypes.string.isRequired,
       role: PropTypes.string.isRequired,
       bio: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired
+      image: PropTypes.string.isRequired,
     })
-  )
+  ),
 };
 
-export default TeamSection; 
+export default TeamSection;
