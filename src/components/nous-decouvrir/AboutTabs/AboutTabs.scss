@@ -222,4 +222,84 @@
       }
     }
   }
-} 
+}
+
+// Section "Qui sommes-nous ?" (même style que additional-content-section de nos-missions)
+.who-we-are-section {
+  padding: 50px 0;
+  text-align: center;
+  // Animation d'apparition (similaire à interview-video-section)
+  opacity: 0;
+  transform: translateY(40px); // Arrive par le bas
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  margin-bottom: 40px; // Espace après la section
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .who-we-are-text {
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+    
+    h2 {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    p {
+      font-size: 1.05rem;
+      color: #5a6268;
+      line-height: 1.75;
+      margin-bottom: 15px;
+    }
+  }
+  
+  .who-we-are-cta .btn {
+    // Style du bouton harmonisé avec .btn-outline
+    min-width: 180px;
+    font-weight: 600;
+    padding: 0.875rem 1.75rem; // ~14px 28px
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    background-color: transparent;
+    color: vars.$color-primary;
+    border: 2px solid vars.$color-primary;
+
+    &:hover {
+      background-color: vars.$color-primary;
+      color: vars.$color-white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(darken(vars.$color-primary, 15%), 0.2);
+    }
+  }
+}
+
+// Ajustements pour mobile
+@media (max-width: 768px) {
+  .who-we-are-section {
+    padding: 40px 0;
+    transform: translateY(20px);
+    margin-bottom: 30px;
+    
+    &.is-visible {
+      transform: translateY(0);
+    }
+    
+    .who-we-are-text {
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
