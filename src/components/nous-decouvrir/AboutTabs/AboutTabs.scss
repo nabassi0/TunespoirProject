@@ -1,20 +1,21 @@
-@use '../../../styles/abstracts/variables' as vars;
-@use '../../../styles/abstracts/mixins' as mix;
+@use "../../../styles/abstracts/variables" as vars;
+@use "../../../styles/abstracts/mixins" as mix;
+@use "sass:color"; // Ajout de l'import pour les nouvelles fonctions de couleur
 
 .about-tabs {
   margin: vars.$spacing-xl 0;
-  
+
   .tabs-navigation {
     display: flex;
     border-bottom: 1px solid vars.$color-border;
     margin-bottom: vars.$spacing-lg;
-    
+
     @include mix.max-width(sm) {
       flex-direction: column;
       gap: vars.$spacing-xs;
       border-bottom: none;
     }
-    
+
     .tab-btn {
       padding: vars.$spacing-sm vars.$spacing-md;
       border: none;
@@ -25,9 +26,9 @@
       cursor: pointer;
       transition: all vars.$transition-base;
       position: relative;
-      
+
       &:after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: -1px;
         left: 0;
@@ -36,29 +37,29 @@
         background-color: vars.$color-primary;
         transition: width vars.$transition-base;
       }
-      
+
       &:hover {
         color: vars.$color-primary;
       }
-      
+
       &.active {
         color: vars.$color-primary;
         font-weight: vars.$font-weight-semibold;
-        
+
         &:after {
           width: 100%;
         }
       }
-      
+
       @include mix.max-width(sm) {
         border: 1px solid vars.$color-border;
         border-radius: vars.$border-radius-sm;
         text-align: center;
-        
+
         &:after {
           display: none;
         }
-        
+
         &.active {
           background-color: vars.$color-primary;
           color: vars.$color-white;
@@ -67,52 +68,52 @@
       }
     }
   }
-  
+
   .tab-content {
     min-height: 300px;
   }
-  
+
   // Mission content styles
   .mission-content {
     .mission-areas {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: vars.$spacing-lg;
-      
+
       @include mix.max-width(lg) {
         grid-template-columns: repeat(2, 1fr);
       }
-      
+
       @include mix.max-width(sm) {
         grid-template-columns: 1fr;
       }
     }
-    
+
     .mission-area {
       @include mix.card;
       padding: vars.$spacing-lg;
       text-align: center;
-      
+
       .mission-icon {
         font-size: 2.5rem;
         color: vars.$color-primary;
         margin-bottom: vars.$spacing-md;
       }
-      
+
       h3 {
         font-size: 1.3rem;
         font-weight: vars.$font-weight-semibold;
         margin-bottom: vars.$spacing-sm;
         color: vars.$color-text-dark;
       }
-      
+
       p {
         color: vars.$color-text-light;
         line-height: 1.5;
       }
     }
   }
-  
+
   // Values content styles
   .values-content {
     .values-list {
@@ -121,7 +122,7 @@
       display: flex;
       flex-direction: column;
       gap: vars.$spacing-md;
-      
+
       li {
         display: flex;
         align-items: flex-start;
@@ -129,27 +130,28 @@
         border-radius: vars.$border-radius-md;
         background-color: vars.$color-white;
         box-shadow: vars.$shadow-sm;
-        transition: transform vars.$transition-base, box-shadow vars.$transition-base;
-        
+        transition: transform vars.$transition-base,
+          box-shadow vars.$transition-base;
+
         &:hover {
           transform: translateY(-3px);
           box-shadow: vars.$shadow-md;
         }
-        
+
         .value-icon {
           color: vars.$color-primary;
           font-size: 1.5rem;
           margin-right: vars.$spacing-md;
           flex-shrink: 0;
         }
-        
+
         h3 {
           font-size: 1.2rem;
           font-weight: vars.$font-weight-semibold;
           margin-bottom: vars.$spacing-xs;
           color: vars.$color-text-dark;
         }
-        
+
         p {
           color: vars.$color-text-light;
           line-height: 1.5;
@@ -157,7 +159,7 @@
       }
     }
   }
-  
+
   // Approach content styles
   .approach-content {
     .approach-intro {
@@ -169,25 +171,25 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     .approach-steps {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: vars.$spacing-md;
-      
+
       @include mix.max-width(lg) {
         grid-template-columns: repeat(3, 1fr);
       }
-      
+
       @include mix.max-width(md) {
         grid-template-columns: repeat(2, 1fr);
       }
-      
+
       @include mix.max-width(sm) {
         grid-template-columns: 1fr;
       }
     }
-    
+
     .approach-step {
       @include mix.card;
       padding: vars.$spacing-md;
@@ -195,7 +197,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      
+
       .step-number {
         width: 40px;
         height: 40px;
@@ -208,14 +210,14 @@
         font-weight: vars.$font-weight-bold;
         margin-bottom: vars.$spacing-sm;
       }
-      
+
       h3 {
         font-size: 1.2rem;
         font-weight: vars.$font-weight-semibold;
         margin-bottom: vars.$spacing-sm;
         color: vars.$color-text-dark;
       }
-      
+
       p {
         color: vars.$color-text-light;
         line-height: 1.5;
@@ -242,14 +244,14 @@
   .who-we-are-text {
     max-width: 750px;
     margin: 0 auto 30px auto;
-    
+
     h2 {
       font-size: 2rem;
       color: #2c3e50;
       margin-bottom: 20px;
       font-weight: 600;
     }
-    
+
     p {
       font-size: 1.05rem;
       color: #5a6268;
@@ -257,7 +259,7 @@
       margin-bottom: 15px;
     }
   }
-  
+
   .who-we-are-cta .btn {
     // Style du bouton harmonisé avec .btn-outline
     min-width: 180px;
@@ -276,7 +278,8 @@
       background-color: vars.$color-primary;
       color: vars.$color-white;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(darken(vars.$color-primary, 15%), 0.2);
+      box-shadow: 0 4px 12px
+        rgba(color.adjust(vars.$color-primary, $lightness: -15%), 0.2);
     }
   }
 }
@@ -287,16 +290,16 @@
     padding: 40px 0;
     transform: translateY(20px);
     margin-bottom: 30px;
-    
+
     &.is-visible {
       transform: translateY(0);
     }
-    
+
     .who-we-are-text {
       h2 {
         font-size: 1.8rem;
       }
-      
+
       p {
         font-size: 1rem;
       }

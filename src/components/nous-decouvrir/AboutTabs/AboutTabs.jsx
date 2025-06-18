@@ -224,31 +224,28 @@ const AboutTabs = ({
           <h2>Qui sommes-nous ?</h2>
           <p>
             Fondée sur l'engagement et la solidarité, Tunespoir est une
-            initiative née d'une profonde volonté de changer le destin des
-            communautés rurales défavorisées de Tunisie.
+            initiative née en décembre 2013 de la volonté de transformer le
+            destin des communautés rurales défavorisées.
           </p>
           <p>
-            Notre association a vu le jour en décembre 2013, à la suite d'un
-            constat alarmant effectué par ses fondateurs, des amis médecins,
-            lors d'une visite dans les zones rurales de Tunisie. Ils y ont
-            découvert une pauvreté extrême : un accès quasi inexistant aux
-            soins, des droits fondamentaux bafoués, l'absence d'eau courante, et
-            des écoles délabrées, laissées à l'abandon depuis plus de 25 ans.
+            Cette association a été créée à la suite d’un constat alarmant
+            effectué par ses fondateurs, principalement des amis et médecins,
+            lors d’une visite dans les zones rurales de Tunisie. Ils y ont
+            découvert une pauvreté extrême caractérisée par un accès quasi
+            inexistant aux soins, des droits fondamentaux ignorés, l’absence
+            d'électricité et d’eau courante, ainsi que des écoles délabrées et
+            abandonnées depuis plus de 25 ans.
           </p>
           <p>
-            Face à cette réalité insoutenable, les membres fondateurs, amis et
-            tous médecins anesthésistes réanimateurs, ont décidé d'agir
-            rapidement, en concentrant leurs efforts sur un levier essentiel :
-            l'éducation.
+            Face à cette réalité insoutenable, un groupe d'amis a décidé d’agir
+            en se concentrant sur un levier essentiel : l’éducation. Leur
+            mobilisation était motivée par une inquiétude profonde face au fossé
+            grandissant entre les populations rurales, qui se sentent
+            abandonnées, et celles des villes, mieux loties.
           </p>
           <p>
-            À l'origine de cette mobilisation, une inquiétude profonde : le
-            fossé grandissant entre les populations rurales délaissées, nourries
-            d'un sentiment d'abandon, et celles des villes, mieux loties.
-          </p>
-          <p>
-            La réponse de Tunespoir a été claire : redonner espoir à la jeunesse
-            en investissant dans leur avenir éducatif.
+            En réponse, Tunespoir s'est donné pour mission de redonner espoir à
+            la jeunesse en investissant dans son avenir éducatif.
           </p>
         </div>
       </section>
