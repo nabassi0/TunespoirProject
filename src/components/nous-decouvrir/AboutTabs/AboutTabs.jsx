@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import {
+  FaGraduationCap,
+  FaHeartbeat,
+  FaHome,
+  FaSeedling,
   FaHandHoldingHeart,
   FaUsers,
-  FaGlobeAfrica,
-  FaCheckCircle,
+  FaLightbulb,
+  FaShieldAlt,
+  FaHandshake,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./AboutTabs.scss";
@@ -101,82 +106,82 @@ const AboutTabs = ({
   defaultTab = "mission",
   missionAreas = [
     {
-      icon: <FaHandHoldingHeart className="mission-icon" />,
-      title: "Aide humanitaire",
+      icon: <FaGraduationCap className="mission-icon" />,
+      title: "Éducation et Scolarisation",
       description:
-        "Nous intervenons rapidement pour apporter une aide d'urgence aux populations touchées par des catastrophes naturelles, des conflits ou des crises humanitaires.",
+        "Favoriser l'accès à l'éducation et lutter contre la déscolarisation. Nous réhabilitons les infrastructures scolaires pour offrir un cadre d'apprentissage sécurisé et accueillant aux enfants des zones rurales.",
     },
     {
-      icon: <FaUsers className="mission-icon" />,
-      title: "Développement communautaire",
+      icon: <FaHeartbeat className="mission-icon" />,
+      title: "Santé et Soins Médicaux",
       description:
-        "Nous mettons en œuvre des projets de développement durable avec les communautés locales dans les domaines de l'éducation, la santé, l'accès à l'eau et l'agriculture.",
+        "Permettre l'accès aux soins médicaux urgents et essentiels. Nous soutenons les hôpitaux par l'achat de matériel médical et participons à la construction de nouveaux pavillons de soins.",
     },
     {
-      icon: <FaGlobeAfrica className="mission-icon" />,
-      title: "Protection de l'environnement",
+      icon: <FaHome className="mission-icon" />,
+      title: "Aide Sociale et Logement",
       description:
-        "Nous travaillons à la préservation des écosystèmes et encourageons des pratiques respectueuses de l'environnement au sein des communautés.",
+        "Améliorer les conditions de vie en favorisant l'accès à la nourriture, à l'eau potable et à un logement décent. Nous organisons des collectes et luttons contre l'insalubrité des habitats.",
     },
   ],
   values = [
     {
-      icon: <FaCheckCircle className="value-icon" />,
+      icon: <FaHandHoldingHeart className="value-icon" />,
       title: "Solidarité",
       description:
-        "Nous croyons en la puissance de la solidarité pour unir les peuples et surmonter ensemble les défis.",
+        "Nous croyons en la force de la solidarité pour unir les communautés et surmonter ensemble les défis de la pauvreté rurale.",
     },
     {
-      icon: <FaCheckCircle className="value-icon" />,
-      title: "Respect",
-      description:
-        "Nous respectons la dignité, la culture et les aspirations des communautés avec lesquelles nous travaillons.",
-    },
-    {
-      icon: <FaCheckCircle className="value-icon" />,
-      title: "Transparence",
-      description:
-        "Nous nous engageons à être totalement transparents dans notre gestion et nos actions.",
-    },
-    {
-      icon: <FaCheckCircle className="value-icon" />,
-      title: "Innovation",
-      description:
-        "Nous encourageons l'innovation et la créativité pour trouver des solutions durables aux défis complexes.",
-    },
-    {
-      icon: <FaCheckCircle className="value-icon" />,
+      icon: <FaUsers className="value-icon" />,
       title: "Engagement",
       description:
-        "Nous sommes déterminés à mener nos actions avec professionnalisme et un engagement sans faille.",
+        "Nous nous engageons avec détermination auprès des familles et des enfants pour transformer durablement leurs conditions de vie.",
+    },
+    {
+      icon: <FaLightbulb className="value-icon" />,
+      title: "Innovation",
+      description:
+        "Nous développons des solutions créatives et adaptées aux réalités locales pour maximiser l'impact de nos interventions.",
+    },
+    {
+      icon: <FaShieldAlt className="value-icon" />,
+      title: "Dignité",
+      description:
+        "Nous respectons la dignité de chaque personne et refusons l'assistanat au profit d'un accompagnement vers l'autonomie.",
+    },
+    {
+      icon: <FaHandshake className="value-icon" />,
+      title: "Partenariat",
+      description:
+        "Nous privilégions une approche collaborative avec les acteurs locaux pour construire des solutions pérennes et ancrées dans le territoire.",
     },
   ],
-  approachIntro = "Notre approche est centrée sur les communautés et vise à renforcer leur autonomie. Nous travaillons avec une méthodologie en 5 étapes :",
+  approachIntro = "Notre approche repose sur l'écoute des besoins réels et l'accompagnement vers l'autonomie. Nous refusons l'assistanat et privilégions une démarche participative en 5 étapes :",
   approachSteps = [
     {
-      title: "Écouter",
+      title: "Identifier",
       description:
-        "Nous commençons par écouter les besoins réels des communautés et comprendre leur contexte spécifique.",
+        "Nous identifions les besoins prioritaires des communautés rurales lors de visites terrain et d'échanges avec les populations locales.",
     },
     {
-      title: "Collaborer",
+      title: "Concevoir",
       description:
-        "Nous concevons les projets en collaboration avec les acteurs locaux pour garantir leur pertinence.",
+        "Nous concevons des projets adaptés aux réalités locales en collaboration avec les acteurs du territoire et les bénéficiaires.",
     },
     {
-      title: "Agir",
+      title: "Mobiliser",
       description:
-        "Nous mettons en œuvre les projets avec rigueur et flexibilité, en impliquant activement les communautés.",
+        "Nous mobilisons nos ressources et nos partenaires pour mettre en œuvre des actions concrètes et mesurables sur le terrain.",
     },
     {
-      title: "Évaluer",
+      title: "Accompagner",
       description:
-        "Nous évaluons constamment l'impact de nos actions pour les améliorer et les adapter.",
+        "Nous accompagnons les communautés dans la réalisation des projets en renforçant leurs capacités et leur autonomie.",
     },
     {
       title: "Pérenniser",
       description:
-        "Nous travaillons à rendre nos projets autonomes et durables sur le long terme.",
+        "Nous nous assurons que nos interventions créent un impact durable en transférant progressivement la responsabilité aux acteurs locaux.",
     },
   ],
 }) => {
@@ -228,17 +233,17 @@ const AboutTabs = ({
             destin des communautés rurales défavorisées.
           </p>
           <p>
-            Cette association a été créée à la suite d’un constat alarmant
+            Cette association a été créée à la suite d'un constat alarmant
             effectué par ses fondateurs, principalement des amis et médecins,
-            lors d’une visite dans les zones rurales de Tunisie. Ils y ont
+            lors d'une visite dans les zones rurales de Tunisie. Ils y ont
             découvert une pauvreté extrême caractérisée par un accès quasi
-            inexistant aux soins, des droits fondamentaux ignorés, l’absence
-            d'électricité et d’eau courante, ainsi que des écoles délabrées et
+            inexistant aux soins, des droits fondamentaux ignorés, l'absence
+            d'électricité et d'eau courante, ainsi que des écoles délabrées et
             abandonnées depuis plus de 25 ans.
           </p>
           <p>
-            Face à cette réalité insoutenable, un groupe d'amis a décidé d’agir
-            en se concentrant sur un levier essentiel : l’éducation. Leur
+            Face à cette réalité insoutenable, un groupe d'amis a décidé d'agir
+            en se concentrant sur un levier essentiel : l'éducation. Leur
             mobilisation était motivée par une inquiétude profonde face au fossé
             grandissant entre les populations rurales, qui se sentent
             abandonnées, et celles des villes, mieux loties.
