@@ -18,11 +18,11 @@ const Header = () => {
     location.pathname === "/nous-contacter" ||
     location.pathname === "/faire-un-don";
 
-  // Navigation links - all displayed in header
+  // Navigation links - reordered as requested
   const navLinks = [
-    { name: "Actualités", path: "/actualites" },
     { name: "Nous découvrir", path: "/nous-decouvrir" },
     { name: "Mission", path: "/nos-missions" },
+    { name: "Actualités", path: "/actualites" },
     // { name: "Devenir partenaire", path: "/devenir-partenaire" },
     { name: "FAQ", path: "/faq" },
     { name: "Contact", path: "/nous-contacter" },
