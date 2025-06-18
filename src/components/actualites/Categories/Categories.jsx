@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import "./Categories.scss";
+import Actualite1 from "../../../assets/images/actualités/actualite1.jpeg";
+import Actualite2 from "../../../assets/images/actualités/actualite2.jpeg";
+import Actualite3 from "../../../assets/images/actualités/actualite3.jpeg";
+import Actualite4 from "../../../assets/images/actualités/actualite4.jpeg";
 
 const Categories = ({ categories, activeCategory, onCategoryChange }) => {
   // Images temporaires - tu pourras les remplacer par les vraies images
   const carouselImages = [
     {
-      src: "https://picsum.photos/1200/400?random=1",
+      src: Actualite1,
       title: "Nos Actions Éducatives",
       description: "Construire l'avenir par l'éducation",
     },
     {
-      src: "https://picsum.photos/1200/400?random=2",
+      src: Actualite2,
       title: "Aide Humanitaire",
       description: "Soutenir les communautés vulnérables",
     },
     {
-      src: "https://picsum.photos/1200/400?random=3",
+      src: Actualite3,
       title: "Développement Durable",
       description: "Créer un impact positif et durable",
     },
     {
-      src: "https://picsum.photos/1200/400?random=4",
+      src: Actualite4,
       title: "Santé et Bien-être",
       description: "Améliorer l'accès aux soins de santé",
     },
