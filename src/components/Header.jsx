@@ -51,6 +51,7 @@ const Header = () => {
   useEffect(() => {
     console.log(navLinkClass);
   }, [navLinkClass]);
+
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
@@ -80,13 +81,26 @@ const Header = () => {
 
         <div className="right-content">
           <nav className={`main-nav ${isMenuOpen ? "active" : ""}`}>
-            <button
-              className="mobile-close"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Fermer le menu"
-            >
-              <FaTimes />
-            </button>
+            <div className="mobile-nav-header">
+              <Link
+                to="/"
+                className="mobile-logo-link"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <img
+                  src={tunespoirLogo}
+                  alt="Tunespoir Logo"
+                  className="mobile-logo-image"
+                />
+              </Link>
+              <button
+                className="mobile-close"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Fermer le menu"
+              >
+                <FaTimes />
+              </button>
+            </div>
 
             <ul className="nav-list">
               {navLinks.map((link) => (
@@ -104,15 +118,21 @@ const Header = () => {
                 </li>
               ))}
             </ul>
+
+            <div className="mobile-nav-footer">
+              <Link to="/faire-un-don" className="btn btn-donate mobile-donate">
+                Faire un don
+              </Link>
+            </div>
           </nav>
 
           <div className="header-actions">
-            <Link to="/faire-un-don" className="btn btn-donate">
+            <Link to="/faire-un-don" className="btn btn-donate desktop-donate">
               Faire un don
             </Link>
 
             <button
-              className="mobile-menu-toggle"
+              className={`mobile-menu-toggle ${isMenuOpen ? "hidden" : ""}`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Ouvrir le menu"
             >

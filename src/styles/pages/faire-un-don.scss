@@ -1,4 +1,5 @@
 @use "../abstracts" as *;
+@use "sass:color";
 
 /* Donation page styles */
 .donation-page {
@@ -661,7 +662,7 @@
   }
 }
 
-/* Small phones (320px - 480px) */
+/* Standard phones (320px - 480px) */
 @media (max-width: 480px) {
   .donation-page {
     padding: 1.5rem 0 1rem;
