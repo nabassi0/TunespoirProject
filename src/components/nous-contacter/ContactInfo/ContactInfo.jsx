@@ -12,9 +12,9 @@ const ContactInfo = () => {
         <div className="contact-details">
           <h3>Adresse</h3>
           <p>
-            38 Quai Georges Gorse
+            48 rue de Laborde
             <br />
-            92100 Boulogne Billancourt, France
+            75008 Paris, France
           </p>
         </div>
       </div>

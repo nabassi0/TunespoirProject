@@ -80,8 +80,8 @@ const Footer = () => {
           <div className="footer-column footer-contact">
             <h3 className="footer-title">Contact</h3>
             <ul className="contact-info">
-              <li>38 Quai Georges Gorse</li>
-              <li>92100 Boulogne Billancourt, France</li>
+              <li>48 rue de Laborde</li>
+              <li>75008 Paris, France</li>
               <li>Email: Association.tunespoir@gmail.com</li>
               <li>Téléphone: +33 1 23 45 67 89</li>
             </ul>
