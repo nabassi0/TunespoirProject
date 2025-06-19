@@ -11,13 +11,6 @@ const Header = () => {
 
   const isNosMissionsPage = location.pathname === "/nos-missions";
 
-  const isBlack =
-    location.pathname === "/actualites" ||
-    isNosMissionsPage ||
-    location.pathname === "/faq" ||
-    location.pathname === "/nous-contacter" ||
-    location.pathname === "/faire-un-don";
-
   // Navigation links - reordered as requested
   const navLinks = [
     { name: "Nous découvrir", path: "/nous-decouvrir" },
@@ -43,14 +36,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const navLinkClass = `${
-    isBlack ? "header-black-letters" : "header-white-letters"
-  }`;
-
-  useEffect(() => {
-    console.log(navLinkClass);
-  }, [navLinkClass]);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -107,11 +92,9 @@ const Header = () => {
                 <li key={link.path} className="nav-item">
                   <Link
                     to={link.path}
-                    className={
-                      `nav-link ${
-                        location.pathname === link.path ? "active" : ""
-                      }` + navLinkClass
-                    }
+                    className={`nav-link ${
+                      location.pathname === link.path ? "active" : ""
+                    }`}
                   >
                     {link.name}
                   </Link>
