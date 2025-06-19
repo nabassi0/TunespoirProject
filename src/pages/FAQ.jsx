@@ -1,161 +1,205 @@
-import { useState, useEffect } from 'react';
-import {
-  PageHeader,
-  SearchBar,
-  FAQSection
-} from '../components/faq';
-import '../styles/pages/faq.scss';
+import React, { useState, useEffect, useMemo } from "react";
+import { PageHeader, SearchBar, FAQSection } from "../components/faq";
+import "../styles/pages/faq.scss";
 
 const FAQ = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('general');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
   const [expandedItems, setExpandedItems] = useState({});
 
-  // Sample FAQ data
-  const faqData = {
-    general: [
-      {
-        id: 'g1',
-        question: 'Qu\'est-ce que Tunespoir ?',
-        answer: 'Tunespoir est une association humanitaire à but non lucratif qui œuvre depuis 2010 pour venir en aide aux personnes vulnérables à travers le monde. Nous intervenons dans les domaines de l\'aide humanitaire, du développement communautaire et de la protection de l\'environnement.'
-      },
-      {
-        id: 'g2',
-        question: 'Comment puis-je soutenir votre association ?',
-        answer: 'Vous pouvez nous soutenir de plusieurs façons : en faisant un don ponctuel ou régulier, en devenant bénévole, en participant à nos événements ou en relayant nos actions sur les réseaux sociaux. Chaque contribution, quelle que soit sa forme, nous aide à accomplir notre mission.'
-      },
-      {
-        id: 'g3',
-        question: 'Où intervenez-vous ?',
-        answer: 'Nous intervenons principalement en Afrique, en Asie et en Amérique du Sud. Nos projets sont actuellement actifs dans 18 pays, où nous travaillons en étroite collaboration avec les communautés locales et les autorités.'
-      }
-    ],
-    donation: [
-      {
-        id: 'd1',
-        question: 'Comment puis-je faire un don ?',
-        answer: 'Vous pouvez faire un don directement sur notre site web via notre page "Faire un don", par virement bancaire, par chèque, ou par prélèvement automatique si vous souhaitez nous soutenir régulièrement. Tous les détails sont disponibles sur notre page de dons.'
-      },
-      {
-        id: 'd2',
-        question: 'Mes dons sont-ils déductibles des impôts ?',
-        answer: 'Oui, en France, vos dons à notre association sont déductibles à hauteur de 66% de votre impôt sur le revenu, dans la limite de 20% de votre revenu imposable. Un reçu fiscal vous est automatiquement envoyé pour tout don effectué.'
-      },
-      {
-        id: 'd3',
-        question: 'Puis-je cibler mon don vers un projet spécifique ?',
-        answer: 'Oui, lors de votre don, vous avez la possibilité de choisir le projet ou le domaine d\'action que vous souhaitez soutenir. Vous pouvez également opter pour un don non affecté, qui nous permet de l\'utiliser là où les besoins sont les plus urgents.'
-      },
-      {
-        id: 'd4',
-        question: 'Comment est utilisé mon don ?',
-        answer: 'Sur chaque euro que vous donnez, en moyenne 85 centimes sont directement affectés à nos projets sur le terrain. Les 15 centimes restants sont utilisés pour financer nos frais de fonctionnement, indispensables à la bonne exécution de nos missions. Nous veillons à une gestion rigoureuse et transparente de nos ressources.'
-      }
-    ],
-    volunteer: [
-      {
-        id: 'v1',
-        question: 'Comment devenir bénévole ?',
-        answer: 'Pour devenir bénévole, vous pouvez nous contacter via notre formulaire en ligne ou nous envoyer un email à benevoles@tunespoir.org. Nous organisons régulièrement des sessions d\'information pour présenter nos missions et les différentes façons de s\'impliquer.'
-      },
-      {
-        id: 'v2',
-        question: 'Faut-il avoir des compétences particulières pour être bénévole ?',
-        answer: 'Non, nous accueillons des bénévoles de tous horizons et compétences. Selon votre profil et vos souhaits, nous vous proposerons des missions adaptées. Que ce soit pour des tâches administratives, des événements de collecte, ou des missions sur le terrain, chacun peut trouver sa place.'
-      },
-      {
-        id: 'v3',
-        question: 'Puis-je participer à des missions sur le terrain ?',
-        answer: 'Oui, nous organisons régulièrement des missions sur le terrain pour les bénévoles. Ces missions sont généralement d\'une durée de 2 semaines à 3 mois et nécessitent une préparation et une formation que nous dispensons. Les frais de mission sont partiellement pris en charge par l\'association.'
-      }
-    ],
-    partnership: [
-      {
-        id: 'p1',
-        question: 'Comment devenir partenaire de l\'association ?',
-        answer: 'Pour devenir partenaire, contactez-nous à partenariats@tunespoir.org. Nous étudierons ensemble les possibilités de collaboration, qu\'il s\'agisse de mécénat, de partenariat opérationnel, ou de projets co-construits.'
-      },
-      {
-        id: 'p2',
-        question: 'Quels types de partenariats proposez-vous aux entreprises ?',
-        answer: 'Nous proposons plusieurs types de partenariats aux entreprises : mécénat financier, mécénat de compétences, événements de collecte avec les collaborateurs, arrondi sur salaire, ou encore produits-partage. Chaque partenariat est construit sur mesure pour répondre aux objectifs de l\'entreprise tout en soutenant notre mission.'
-      }
-    ],
-    projects: [
-      {
-        id: 'pr1',
-        question: 'Comment sont choisis vos projets ?',
-        answer: 'Nos projets sont sélectionnés selon plusieurs critères : les besoins identifiés sur le terrain, notre capacité d\'action, la pérennité potentielle du projet, et la participation des communautés locales. Nous réalisons systématiquement des études préalables pour garantir l\'impact et la pertinence de nos interventions.'
-      },
-      {
-        id: 'pr2',
-        question: 'Comment évaluez-vous l\'impact de vos projets ?',
-        answer: 'Nous avons mis en place un système rigoureux de suivi et d\'évaluation de tous nos projets. Des indicateurs précis sont définis dès la conception du projet, et des évaluations sont réalisées régulièrement, incluant des enquêtes auprès des bénéficiaires. Ces évaluations nous permettent d\'améliorer constamment nos interventions.'
-      },
-      {
-        id: 'pr3',
-        question: 'Travaillez-vous avec des partenaires locaux ?',
-        answer: 'Oui, la collaboration avec des partenaires locaux est au cœur de notre approche. Nous travaillons avec des ONG locales, des associations communautaires, des institutions publiques et des entreprises locales. Cette collaboration garantit la pertinence de nos actions et favorise leur durabilité.'
-      }
-    ]
-  };
-
-  // Categories for navigation
+  // Categories de FAQ
   const categories = [
-    { id: 'general', label: 'Général' },
-    { id: 'donation', label: 'Dons' },
-    { id: 'volunteer', label: 'Bénévolat' },
-    { id: 'partnership', label: 'Partenariats' },
-    { id: 'projects', label: 'Projets' }
+    { id: "all", label: "Toutes" },
+    { id: "about", label: "À propos de Tunespoir" },
+    { id: "projects", label: "Nos projets" },
+    { id: "donations", label: "Dons et soutien" },
+    { id: "volunteering", label: "Bénévolat" },
+    { id: "contact", label: "Contact" },
   ];
 
+  // Questions et réponses
+  const faqs = [
+    // À propos de Tunespoir
+    {
+      id: 1,
+      category: "about",
+      question: "Qu'est-ce que Tunespoir ?",
+      answer:
+        "Tunespoir est une association humanitaire française créée en 2018 qui agit pour améliorer les conditions d'éducation et de vie des populations rurales en Tunisie. Nous nous concentrons sur la rénovation d'écoles, le soutien aux agriculteurs et l'aide humanitaire dans les régions les plus défavorisées.",
+    },
+    {
+      id: 2,
+      category: "about",
+      question: "Quelle est la mission de Tunespoir ?",
+      answer:
+        "Notre mission est de contribuer au développement durable des régions rurales de Tunisie en nous concentrant sur l'éducation, l'agriculture et l'aide humanitaire. Nous croyons que l'éducation est la clé du développement et nous œuvrons pour offrir aux enfants des conditions d'apprentissage dignes et sécurisées.",
+    },
+    {
+      id: 3,
+      category: "about",
+      question: "Depuis quand Tunespoir existe-t-elle ?",
+      answer:
+        "Tunespoir a été créée en 2018. Depuis notre création, nous avons mené de nombreux projets de rénovation d'écoles et d'aide aux communautés rurales tunisiennes, avec un impact direct sur des centaines d'enfants et de familles.",
+    },
+
+    // Nos projets
+    {
+      id: 4,
+      category: "projects",
+      question: "Quels types de projets menez-vous ?",
+      answer:
+        "Nous menons principalement trois types de projets : la rénovation et construction d'écoles (comme le Lycée-Internat de Bargou et l'école de Kerkouen), le soutien aux petits agriculteurs par la plantation d'oliviers et figuiers, et l'aide humanitaire d'urgence comme la distribution de denrées alimentaires aux familles démunies.",
+    },
+    {
+      id: 5,
+      category: "projects",
+      question: "Où intervenez-vous en Tunisie ?",
+      answer:
+        "Nous intervenons principalement dans le nord-ouest de la Tunisie, une région où 50% de la population vit au-dessous du seuil de pauvreté. Nos projets se concentrent sur les gouvernorats de Jendouba, Siliana (Bargou), La Manouba, et d'autres zones rurales défavorisées.",
+    },
+    {
+      id: 6,
+      category: "projects",
+      question: "Comment choisissez-vous vos projets ?",
+      answer:
+        "Nous identifions les besoins les plus urgents en collaboration avec les communautés locales, les autorités éducatives et nos partenaires sur le terrain. Nous priorisons les projets ayant un impact direct et durable sur l'éducation des enfants et l'amélioration des conditions de vie des familles.",
+    },
+    {
+      id: 7,
+      category: "projects",
+      question: "Quel est l'état d'avancement du projet du Lycée de Bargou ?",
+      answer:
+        "Après avoir rénové la cuisine, le réfectoire et les sanitaires du Lycée-Internat de Bargou, nous faisons maintenant face à une urgence sécuritaire : la remise aux normes du réseau électrique pour assurer la sécurité des élèves et éviter tout risque d'accident ou d'incendie.",
+    },
+
+    // Dons et soutien
+    {
+      id: 8,
+      category: "donations",
+      question: "Comment puis-je faire un don à Tunespoir ?",
+      answer:
+        "Vous pouvez faire un don en ligne via notre site web dans la section \"Faire un don\". Nous acceptons les dons ponctuels et les dons mensuels. Tous les dons sont sécurisés et vous recevrez un reçu fiscal vous permettant de bénéficier d'une réduction d'impôt.",
+    },
+    {
+      id: 9,
+      category: "donations",
+      question: "Mes dons sont-ils déductibles fiscalement ?",
+      answer:
+        "Oui, Tunespoir étant une association reconnue d'intérêt général, vos dons ouvrent droit à une réduction d'impôt de 66% du montant versé dans la limite de 20% de votre revenu imposable. Un reçu fiscal vous sera automatiquement envoyé.",
+    },
+    {
+      id: 10,
+      category: "donations",
+      question: "À quoi servent concrètement mes dons ?",
+      answer:
+        "Vos dons financent directement nos projets : rénovation d'écoles (matériaux, main-d'œuvre), achat de matériel pédagogique, plantation d'arbres fruitiers pour les agriculteurs, achat de denrées alimentaires pour les familles en difficulté, et équipement médical pour les centres de soins.",
+    },
+    {
+      id: 11,
+      category: "donations",
+      question: "Puis-je suivre l'utilisation de mon don ?",
+      answer:
+        "Absolument ! Nous publions régulièrement des rapports d'activité et des actualités détaillant l'avancement de nos projets. Vous pouvez suivre l'impact de votre contribution via notre site web et nos réseaux sociaux.",
+    },
+
+    // Bénévolat
+    {
+      id: 12,
+      category: "volunteering",
+      question: "Comment devenir bénévole chez Tunespoir ?",
+      answer:
+        "Nous accueillons les bénévoles motivés ! Vous pouvez nous aider de différentes manières : communication, organisation d'événements, collecte de fonds, ou participation aux missions sur le terrain. Contactez-nous via notre formulaire de contact pour discuter des opportunités disponibles.",
+    },
+    {
+      id: 13,
+      category: "volunteering",
+      question:
+        "Dois-je avoir des compétences particulières pour être bénévole ?",
+      answer:
+        "Non, nous avons besoin de profils variés ! Que vous ayez des compétences en communication, en informatique, en organisation, ou simplement de la motivation, il y a une place pour vous. Nous vous formerons selon vos intérêts et nos besoins.",
+    },
+    {
+      id: 14,
+      category: "volunteering",
+      question: "Organisez-vous des missions bénévoles en Tunisie ?",
+      answer:
+        "Nous organisons périodiquement des missions sur le terrain en Tunisie pour les travaux de rénovation et le suivi de nos projets. Ces missions nécessitent une préparation particulière et sont ouvertes aux bénévoles expérimentés. Contactez-nous pour en savoir plus.",
+    },
+
+    // Contact
+    {
+      id: 15,
+      category: "contact",
+      question: "Comment contacter Tunespoir ?",
+      answer:
+        "Vous pouvez nous contacter via notre formulaire de contact sur le site web, par email, ou nous suivre sur nos réseaux sociaux. Nous nous efforçons de répondre à tous les messages dans les plus brefs délais.",
+    },
+    {
+      id: 16,
+      category: "contact",
+      question: "Organisez-vous des événements publics ?",
+      answer:
+        "Oui, nous organisons régulièrement des événements de sensibilisation, des conférences et des collectes de fonds. Ces événements sont annoncés sur notre site web et nos réseaux sociaux. C'est aussi l'occasion de rencontrer notre équipe et d'en apprendre plus sur nos actions.",
+    },
+    {
+      id: 17,
+      category: "contact",
+      question: "Puis-je visiter vos projets en Tunisie ?",
+      answer:
+        "Les visites de nos projets sont possibles dans le cadre de nos missions organisées ou sur demande particulière. Pour des raisons de sécurité et d'organisation, nous vous demandons de nous contacter au préalable pour planifier votre visite.",
+    },
+    {
+      id: 18,
+      category: "contact",
+      question: "Comment rester informé de vos actualités ?",
+      answer:
+        'Suivez-nous sur nos réseaux sociaux, abonnez-vous à notre newsletter, ou consultez régulièrement la section "Actualités" de notre site web. Nous publions régulièrement des mises à jour sur nos projets et nos événements.',
+    },
+  ];
+
+  // Animation effect on mount
   useEffect(() => {
-    // Set visible after component mount for animations
     setIsVisible(true);
   }, []);
 
+  // Filtered FAQs based on category and search
+  const filteredFaqs = useMemo(() => {
+    let filtered = faqs;
+
+    // Filter by category
+    if (activeCategory !== "all") {
+      filtered = filtered.filter((faq) => faq.category === activeCategory);
+    }
+
+    // Filter by search term
+    if (searchTerm) {
+      filtered = filtered.filter(
+        (faq) =>
+          faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    return filtered;
+  }, [activeCategory, searchTerm]);
+
+  // Toggle FAQ item
   const toggleItem = (id) => {
-    setExpandedItems(prevState => ({
-      ...prevState,
-      [id]: !prevState[id]
+    setExpandedItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
     }));
   };
 
-  // Filter FAQs based on search term
-  const getFilteredFaqs = () => {
-    if (!searchTerm) {
-      return faqData[activeCategory];
-    }
-
-    const searchTermLower = searchTerm.toLowerCase();
-    let results = [];
-
-    // Search in all categories
-    Object.values(faqData).forEach(categoryFaqs => {
-      const filteredCategoryFaqs = categoryFaqs.filter(faq => 
-        faq.question.toLowerCase().includes(searchTermLower) || 
-        faq.answer.toLowerCase().includes(searchTermLower)
-      );
-      results = [...results, ...filteredCategoryFaqs];
-    });
-
-    return results;
-  };
-
-  const filteredFaqs = getFilteredFaqs();
-
   return (
-    <div className={`faq-page ${isVisible ? 'visible' : ''}`}>
+    <div className={`faq-page ${isVisible ? "visible" : ""}`}>
       <div className="container">
         <PageHeader />
-        
-        <SearchBar 
-          searchTerm={searchTerm} 
-          onSearchChange={setSearchTerm} 
-        />
-        
-        <FAQSection 
+
+        <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+
+        <FAQSection
           categories={categories}
           activeCategory={activeCategory}
           setActiveCategory={setActiveCategory}
@@ -169,4 +213,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ; 
+export default FAQ;
