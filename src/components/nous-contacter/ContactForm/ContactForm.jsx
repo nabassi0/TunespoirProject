@@ -1,77 +1,77 @@
-import React, { useState } from 'react';
-import './ContactForm.scss';
+import React, { useState } from "react";
+import "./ContactForm.scss";
 
 const ContactForm = ({ onSubmitSuccess }) => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-    contactPreference: 'email',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+    contactPreference: "email",
   });
-  
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.firstName.trim()) {
-      newErrors.firstName = 'Le prénom est requis';
+      newErrors.firstName = "Le prénom est requis";
     }
-    
+
     if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Le nom est requis';
+      newErrors.lastName = "Le nom est requis";
     }
-    
+
     if (!formData.email.trim()) {
-      newErrors.email = 'L\'email est requis';
+      newErrors.email = "L'email est requis";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'L\'email n\'est pas valide';
+      newErrors.email = "L'email n'est pas valide";
     }
-    
-    if (formData.contactPreference === 'phone' && !formData.phone.trim()) {
-      newErrors.phone = 'Le téléphone est requis pour ce mode de contact';
+
+    if (formData.contactPreference === "phone" && !formData.phone.trim()) {
+      newErrors.phone = "Le téléphone est requis pour ce mode de contact";
     }
-    
+
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Le sujet est requis';
+      newErrors.subject = "Le sujet est requis";
     }
-    
+
     if (!formData.message.trim()) {
-      newErrors.message = 'Le message est requis';
+      newErrors.message = "Le message est requis";
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Le message doit contenir au moins 10 caractères';
+      newErrors.message = "Le message doit contenir au moins 10 caractères";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
-    
+
     // Clear error when field is edited
     if (errors[name]) {
-      setErrors(prevErrors => ({
+      setErrors((prevErrors) => ({
         ...prevErrors,
-        [name]: undefined
+        [name]: undefined,
       }));
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if (validateForm()) {
       setIsSubmitting(true);
-      
+
       // Simulate form submission
       setTimeout(() => {
         setIsSubmitting(false);
@@ -91,9 +91,11 @@ const ContactForm = ({ onSubmitSuccess }) => {
             name="firstName"
             value={formData.firstName}
             onChange={handleChange}
-            className={errors.firstName ? 'error' : ''}
+            className={errors.firstName ? "error" : ""}
           />
-          {errors.firstName && <div className="error-message">{errors.firstName}</div>}
+          {errors.firstName && (
+            <div className="error-message">{errors.firstName}</div>
+          )}
         </div>
         <div className="form-group">
           <label htmlFor="lastName">Nom *</label>
@@ -103,9 +105,11 @@ const ContactForm = ({ onSubmitSuccess }) => {
             name="lastName"
             value={formData.lastName}
             onChange={handleChange}
-            className={errors.lastName ? 'error' : ''}
+            className={errors.lastName ? "error" : ""}
           />
-          {errors.lastName && <div className="error-message">{errors.lastName}</div>}
+          {errors.lastName && (
+            <div className="error-message">{errors.lastName}</div>
+          )}
         </div>
       </div>
 
@@ -118,19 +122,18 @@ const ContactForm = ({ onSubmitSuccess }) => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={errors.email ? 'error' : ''}
+            className={errors.email ? "error" : ""}
           />
           {errors.email && <div className="error-message">{errors.email}</div>}
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Téléphone</label>
           <input
             type="tel"
             id="phone"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className={errors.phone ? 'error' : ''}
+            className={errors.phone ? "error" : ""}
           />
           {errors.phone && <div className="error-message">{errors.phone}</div>}
         </div>
@@ -144,9 +147,11 @@ const ContactForm = ({ onSubmitSuccess }) => {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          className={errors.subject ? 'error' : ''}
+          className={errors.subject ? "error" : ""}
         />
-        {errors.subject && <div className="error-message">{errors.subject}</div>}
+        {errors.subject && (
+          <div className="error-message">{errors.subject}</div>
+        )}
       </div>
 
       <div className="form-group">
@@ -157,9 +162,11 @@ const ContactForm = ({ onSubmitSuccess }) => {
           rows="5"
           value={formData.message}
           onChange={handleChange}
-          className={errors.message ? 'error' : ''}
+          className={errors.message ? "error" : ""}
         ></textarea>
-        {errors.message && <div className="error-message">{errors.message}</div>}
+        {errors.message && (
+          <div className="error-message">{errors.message}</div>
+        )}
       </div>
 
       <div className="form-group">
@@ -170,7 +177,7 @@ const ContactForm = ({ onSubmitSuccess }) => {
               type="radio"
               name="contactPreference"
               value="email"
-              checked={formData.contactPreference === 'email'}
+              checked={formData.contactPreference === "email"}
               onChange={handleChange}
             />
             <span>Email</span>
@@ -180,7 +187,7 @@ const ContactForm = ({ onSubmitSuccess }) => {
               type="radio"
               name="contactPreference"
               value="phone"
-              checked={formData.contactPreference === 'phone'}
+              checked={formData.contactPreference === "phone"}
               onChange={handleChange}
             />
             <span>Téléphone</span>
@@ -188,19 +195,13 @@ const ContactForm = ({ onSubmitSuccess }) => {
         </div>
       </div>
 
-      <button 
-        type="submit" 
-        className="submit-btn"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+      <button type="submit" className="submit-btn" disabled={isSubmitting}>
+        {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
       </button>
 
-      <p className="form-note">
-        * Champs obligatoires
-      </p>
+      <p className="form-note">* Champs obligatoires</p>
     </form>
   );
 };
 
-export default ContactForm; 
+export default ContactForm;

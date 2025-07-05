@@ -69,7 +69,7 @@ const Footer = () => {
                 <Link to="/nous-decouvrir">Nous découvrir</Link>
               </li>
               <li>
-                <Link to="/nos-partenaires">Nos partenaires</Link>
+                <Link to="/nos-missions">Nos Missions</Link>
               </li>
               <li>
                 <Link to="/faire-un-don">Faire un don</Link>
@@ -83,7 +83,6 @@ const Footer = () => {
               <li>48 rue de Laborde</li>
               <li>75008 Paris, France</li>
               <li>Email: Association.tunespoir@gmail.com</li>
-              <li>Téléphone: +33 1 23 45 67 89</li>
             </ul>
           </div>
 

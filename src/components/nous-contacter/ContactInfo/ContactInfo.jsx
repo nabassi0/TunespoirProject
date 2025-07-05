@@ -35,12 +35,6 @@ const ContactInfo = () => {
         <div className="icon-container">
           <FaPhone />
         </div>
-        <div className="contact-details">
-          <h3>Téléphone</h3>
-          <p>
-            <a href="tel:+33123456789">+33 1 23 45 67 89</a>
-          </p>
-        </div>
       </div>
 
       <div className="map-container">

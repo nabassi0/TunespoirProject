@@ -86,7 +86,7 @@ const FAQ = () => {
       category: "donations",
       question: "Mes dons sont-ils déductibles fiscalement ?",
       answer:
-        "Oui, Tunespoir étant une association reconnue d'intérêt général, vos dons ouvrent droit à une réduction d'impôt de 66% du montant versé dans la limite de 20% de votre revenu imposable. Un reçu fiscal vous sera automatiquement envoyé.",
+        "Oui, Tunespoir étant une association reconnue d'intérêt général, vos dons ouvrent droit à une réduction d'impôt de 66% du montant versé dans la limite de 20% de votre revenu imposable. Un reçu fiscal vous sera automatiquement envoyé. ",
     },
     {
       id: 10,
