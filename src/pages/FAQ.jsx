@@ -26,7 +26,7 @@ const FAQ = () => {
       category: "about",
       question: "Qu'est-ce que Tunespoir ?",
       answer:
-        "Tunespoir est une association humanitaire française créée en 2018 qui agit pour améliorer les conditions d'éducation et de vie des populations rurales en Tunisie. Nous nous concentrons sur la rénovation d'écoles, le soutien aux agriculteurs et l'aide humanitaire dans les régions les plus défavorisées.",
+        "Tunespoir est une association humanitaire créée en décembre 2013 qui agit pour améliorer les conditions d'éducation et de vie des populations rurales en Tunisie. Nous nous concentrons sur la rénovation d'écoles, le soutien aux agriculteurs et l'aide humanitaire dans les régions les plus défavorisées.",
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ const FAQ = () => {
       category: "about",
       question: "Depuis quand Tunespoir existe-t-elle ?",
       answer:
-        "Tunespoir a été créée en 2018. Depuis notre création, nous avons mené de nombreux projets de rénovation d'écoles et d'aide aux communautés rurales tunisiennes, avec un impact direct sur des centaines d'enfants et de familles.",
+        "Tunespoir existe depuis 2013. Depuis notre création, nous avons mené de nombreux projets de rénovation d'écoles et d'aide aux communautés rurales tunisiennes, avec un impact direct sur des centaines d'enfants et de familles.",
     },
 
     // Nos projets
@@ -56,14 +56,14 @@ const FAQ = () => {
       category: "projects",
       question: "Où intervenez-vous en Tunisie ?",
       answer:
-        "Nous intervenons principalement dans le nord-ouest de la Tunisie, une région où 50% de la population vit au-dessous du seuil de pauvreté. Nos projets se concentrent sur les gouvernorats de Jendouba, Siliana (Bargou), La Manouba, et d'autres zones rurales défavorisées.",
+        "Nous intervenons principalement dans le nord-ouest de la Tunisie, une région où 50% de la population vit au-dessous du seuil de pauvreté. Nos projets se concentrent sur les gouvernorats de Jendouba, Siliana (Bargou), La Manouba, et d'autres zones rurales défavorisées. Nous avons aussi effectué des missions à Tunis, Sfax, Kerouan, Nabeul et Sousse.",
     },
     {
       id: 6,
       category: "projects",
       question: "Comment choisissez-vous vos projets ?",
       answer:
-        "Nous identifions les besoins les plus urgents en collaboration avec les communautés locales, les autorités éducatives et nos partenaires sur le terrain. Nous priorisons les projets ayant un impact direct et durable sur l'éducation des enfants et l'amélioration des conditions de vie des familles.",
+        "Nous identifions les besoins les plus urgents en collaboration avec les communautés locales, les autorités éducatives et nos partenaires sur le terrain. Nous priorisons les projets ayant un impact direct et durable sur l'éducation des enfants et l'amélioration des conditions de vie des familles. L'aide sanitaire est imposée par elle même pendant le contexte du Covid en 2020-2021 ou six structures sanitaires ont bénéficié d'un soutien matériel adapté.",
     },
     {
       id: 7,

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./TeamSection.scss";
 import Riadh from "../../../assets/images/equipe/riadh.png";
-import Malek from "../../../assets/images/equipe/Malek.png";
+import Malek from "../../../assets/images/equipe/malekPhoto.png";
 import Mohammed from "../../../assets/images/equipe/mohammed_.png";
 import Momo from "../../../assets/images/equipe/momo.png"; // Assuming you have a local image for Mohamed Samet
 

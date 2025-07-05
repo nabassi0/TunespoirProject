@@ -88,9 +88,9 @@ const Timeline = ({
     },
     {
       year: "2022",
-      title: "Construction à l'Hôpital Hédi Chayer",
+      title: "Construction à l'Hôpital Hédi Chaker",
       description:
-        "Aide à la construction d'un nouveau bâtiment à l'Hôpital Hédi Chayer (Sfax).",
+        "Aide à la construction d'un nouveau bâtiment à l'Hôpital Hédi Chaker (Sfax).",
     },
     {
       year: "2023",
