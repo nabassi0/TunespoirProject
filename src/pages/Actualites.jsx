@@ -30,6 +30,8 @@ const Actualites = () => {
 
   // Animation effect on mount
   useEffect(() => {
+    // Scroll vers le haut lors du montage du composant
+    window.scrollTo(0, 0);
     setIsVisible(true);
   }, []);
 

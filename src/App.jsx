@@ -5,10 +5,12 @@ import "./App.css";
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Pages
 import Home from "./pages/Home";
 import Actualites from "./pages/Actualites";
+import ActualiteDetail from "./pages/ActualiteDetail";
 import NousDecouvrir from "./pages/NousDecouvrir";
 import DevenirPartenaire from "./pages/DevenirPartenaire";
 import NosMissions from "./pages/NosMissions";
@@ -30,6 +32,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-container">
         <Header />
         <main className="main-content">
@@ -41,6 +44,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/actualites" element={<Actualites />} />
+              <Route path="/actualites/:id" element={<ActualiteDetail />} />
               <Route path="/nous-decouvrir" element={<NousDecouvrir />} />
               <Route
                 path="/devenir-partenaire"

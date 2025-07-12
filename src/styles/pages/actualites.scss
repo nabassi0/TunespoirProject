@@ -2,11 +2,10 @@
 @use "sass:color";
 
 .actualites-page {
-  padding: 4rem 0 2rem;
+  padding: 6rem 0 2rem; /* Ajustement du padding pour éviter la navbar */
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.8s ease;
-  margin-top: 5vh;
   min-height: 80vh;
 
   &.visible {

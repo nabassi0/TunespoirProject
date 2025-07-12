@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import './NewsCard.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
+import "./NewsCard.scss";
 
 const NewsCard = ({ item }) => {
   return (
-    <div className="news-card">
+    <Link to={`/actualites/${item.id}`} className="news-card">
       <div className="news-image-container">
         <img src={item.image} alt={item.title} className="news-image" />
         <span className="news-category">{item.category}</span>
@@ -21,12 +21,12 @@ const NewsCard = ({ item }) => {
         </div>
         <h3 className="news-title">{item.title}</h3>
         <p className="news-excerpt">{item.excerpt}</p>
-        <Link to="#" className="read-more">
+        <div className="read-more">
           Lire l'article <FaArrowRight />
-        </Link>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
-export default NewsCard; 
+export default NewsCard;
