@@ -1,60 +1,175 @@
-@use '../../../styles/abstracts/variables' as vars;
-@use '../../../styles/abstracts/mixins' as mix;
+@use "../../../styles/abstracts/variables" as vars;
+@use "../../../styles/abstracts/mixins" as mix;
 
 .team-section {
   padding: vars.$spacing-xl 0;
-  background-color: vars.$color-white;
-  
+  background: vars.$color-white;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+
+  .team-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 vars.$spacing-md;
+
+    @include mix.max-width(sm) {
+      padding: 0 vars.$spacing-sm;
+    }
+  }
+
   .section-header {
     text-align: center;
     max-width: 800px;
     margin: 0 auto vars.$spacing-xl;
-    
+    position: relative;
+    z-index: 1;
+
     .section-title {
       @include mix.typography-h2;
       color: vars.$color-text-dark;
       margin-bottom: vars.$spacing-md;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          vars.$color-primary,
+          vars.$color-secondary
+        );
+        border-radius: 2px;
+      }
     }
-    
+
     .section-description {
       font-size: 1.1rem;
       line-height: 1.6;
       color: vars.$color-text-light;
+      margin-top: vars.$spacing-md;
     }
   }
-  
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: vars.$spacing-lg;
-    
-    @include mix.max-width(lg) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    @include mix.max-width(sm) {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .team-member-card {
-    @include mix.card;
-    overflow: hidden;
-    transition: transform vars.$transition-base, box-shadow vars.$transition-base;
-    
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: vars.$shadow-lg;
-      
-      .member-image {
-        transform: scale(1.05);
+
+  .team-carousel {
+    position: relative;
+    margin-bottom: vars.$spacing-lg;
+
+    // Desktop: display normal (seulement pour les très grands écrans)
+    @media (min-width: 1400px) {
+      .team-carousel-container {
+        display: flex;
+        justify-content: center;
+        overflow: visible;
+
+        .team-grid {
+          display: flex;
+          gap: vars.$spacing-md;
+          justify-content: center;
+          align-items: stretch;
+        }
       }
     }
-    
+
+    // Tablette et mobile: scroll horizontal (inclut maintenant l'iPad Pro)
+    @media (max-width: 1399px) {
+      .team-carousel-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE et Edge
+        scroll-behavior: smooth; // Défilement fluide
+        cursor: grab; // Indique que c'est déplaçable
+
+        &:active {
+          cursor: grabbing; // Pendant le déplacement
+        }
+
+        &::-webkit-scrollbar {
+          display: none; // Chrome, Safari et Opera
+        }
+
+        .team-grid {
+          display: flex;
+          gap: vars.$spacing-md;
+          padding: 0 vars.$spacing-md;
+          width: max-content;
+        }
+      }
+    }
+
+    @include mix.max-width(sm) {
+      .team-carousel-container {
+        .team-grid {
+          gap: vars.$spacing-sm;
+          padding: 0 vars.$spacing-sm;
+        }
+      }
+    }
+  }
+
+  .team-grid {
+    // Les styles de base sont définis dans .team-carousel
+
+    // Desktop: 5 cartes égales (seulement pour les très grands écrans)
+    @media (min-width: 1400px) {
+      .team-member-card {
+        flex: 0 0 calc(20% - #{vars.$spacing-md * 0.8}); // 5 cartes avec gaps
+        min-width: 220px;
+        max-width: 280px;
+      }
+    }
+
+    // Tablette et iPad Pro: cartes scrollables
+    @media (max-width: 1399px) and (min-width: vars.$breakpoint-md) {
+      .team-member-card {
+        flex: 0 0 320px; // Taille fixe pour le scroll, un peu plus large pour iPad Pro
+        min-width: 320px;
+        max-width: 320px;
+      }
+    }
+
+    // Mobile: cartes scrollables plus petites
+    @include mix.max-width(md) {
+      .team-member-card {
+        flex: 0 0 280px; // Taille fixe pour le scroll
+        min-width: 280px;
+        max-width: 280px;
+      }
+    }
+  }
+
+  .team-member-card {
+    background: vars.$color-white;
+    border-radius: vars.$border-radius-md;
+    overflow: hidden;
+    transition: all vars.$transition-base;
+    border: 1px solid rgba(vars.$color-border, 0.1);
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
     .member-image-container {
-      height: 250px;
+      height: 220px;
       overflow: hidden;
-      
+
+      @include mix.max-width(lg) {
+        height: 250px;
+      }
+
+      @include mix.max-width(sm) {
+        height: 250px;
+      }
+
       .member-image {
         width: 100%;
         height: 100%;
@@ -62,29 +177,73 @@
         transition: transform vars.$transition-base;
       }
     }
-    
+
     .member-info {
-      padding: vars.$spacing-md;
-    }
-    
-    .member-name {
-      font-size: 1.3rem;
-      font-weight: vars.$font-weight-semibold;
-      color: vars.$color-text-dark;
-      margin-bottom: vars.$spacing-xs;
-    }
-    
-    .member-role {
-      font-size: 1rem;
-      color: vars.$color-primary;
-      font-weight: vars.$font-weight-medium;
-      margin-bottom: vars.$spacing-sm;
-    }
-    
-    .member-bio {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: vars.$color-text-light;
+      padding: vars.$spacing-lg;
+      text-align: center;
+
+      @include mix.max-width(lg) {
+        padding: vars.$spacing-md;
+      }
+
+      @include mix.max-width(sm) {
+        padding: vars.$spacing-lg;
+      }
+
+      .member-name {
+        font-size: 1.2rem;
+        font-weight: vars.$font-weight-bold;
+        color: vars.$color-text-dark;
+        margin-bottom: vars.$spacing-xs;
+
+        @include mix.max-width(lg) {
+          font-size: 1.3rem;
+        }
+
+        @include mix.max-width(sm) {
+          font-size: 1.3rem;
+        }
+      }
+
+      .member-role {
+        font-size: 0.9rem;
+        color: vars.$color-primary;
+        font-weight: vars.$font-weight-medium;
+        margin-bottom: vars.$spacing-md;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+
+        @include mix.max-width(lg) {
+          font-size: 0.95rem;
+        }
+
+        @include mix.max-width(sm) {
+          font-size: 0.9rem;
+        }
+      }
+
+      .member-bio {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: vars.$color-text-light;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+
+        @include mix.max-width(lg) {
+          font-size: 0.95rem;
+          -webkit-line-clamp: 4;
+          line-clamp: 4;
+        }
+
+        @include mix.max-width(sm) {
+          font-size: 0.9rem;
+          -webkit-line-clamp: 4;
+          line-clamp: 4;
+        }
+      }
     }
   }
-} 
+}

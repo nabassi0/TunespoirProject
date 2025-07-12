@@ -75,25 +75,38 @@ const TeamSection = ({
       bio: "Mohamed Samet est le coordonnateur des actions de Tunespoir. Il supervise nos projets sur le terrain, garantissant leur impact et leur alignement avec notre mission.",
       image: Momo, // Using local image for Mohamed Samet",
     },
+    {
+      id: 5,
+      name: "Amira Guermazi",
+      role: "Responsable Communication",
+      bio: "Amira s'occupe de la communication et de la sensibilisation. Elle développe nos stratégies de communication pour faire connaître notre mission et mobiliser les soutiens.",
+      image: Malek, // Using Malek's image for the fifth person
+    },
   ],
 }) => {
   return (
     <section className="team-section">
-      <div className="section-header">
-        <h2 className="section-title">{title}</h2>
-        <p className="section-description">{description}</p>
-      </div>
+      <div className="team-content">
+        <div className="section-header">
+          <h2 className="section-title">{title}</h2>
+          <p className="section-description">{description}</p>
+        </div>
 
-      <div className="team-grid">
-        {teamMembers.map((member) => (
-          <TeamMemberCard
-            key={member.id}
-            name={member.name}
-            role={member.role}
-            bio={member.bio}
-            image={member.image}
-          />
-        ))}
+        <div className="team-carousel">
+          <div className="team-carousel-container">
+            <div className="team-grid">
+              {teamMembers.map((member) => (
+                <TeamMemberCard
+                  key={member.id}
+                  name={member.name}
+                  role={member.role}
+                  bio={member.bio}
+                  image={member.image}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
