@@ -4,7 +4,8 @@ import "./TeamSection.scss";
 import Riadh from "../../../assets/images/equipe/riadh.png";
 import Malek from "../../../assets/images/equipe/malekPhoto.png";
 import Mohammed from "../../../assets/images/equipe/mohammed_.png";
-import Momo from "../../../assets/images/equipe/momo.png"; // Assuming you have a local image for Mohamed Samet
+import Momo from "../../../assets/images/equipe/momo.png";
+import Mongi from "../../../assets/images/equipe/mongi.png";
 
 /**
  * Team member card component
@@ -77,10 +78,10 @@ const TeamSection = ({
     },
     {
       id: 5,
-      name: "Amira Guermazi",
-      role: "Responsable Communication",
-      bio: "Amira s'occupe de la communication et de la sensibilisation. Elle développe nos stratégies de communication pour faire connaître notre mission et mobiliser les soutiens.",
-      image: Malek, // Using Malek's image for the fifth person
+      name: "Mongi Edhif",
+      role: "Secretaire Général de l’association Tunespoir",
+      bio: "Mongi Edhif est le Secrétaire Général de Tunespoir. Il joue un rôle clé dans la coordination des activités de l'association et assure la bonne communication entre les membres.",
+      image: Mongi, // Using Malek's image for the fifth person
     },
   ],
 }) => {
