@@ -251,23 +251,7 @@ const ActualiteDetail = () => {
         )}
 
         {/* Call to Action */}
-        <div className="article-cta">
-          <div className="cta-content">
-            <h3>Soutenez nos actions</h3>
-            <p>
-              Votre don nous permet de poursuivre nos missions et d'avoir un
-              impact positif sur les communautés.
-            </p>
-            <div className="cta-buttons">
-              <Link to="/faire-un-don" className="cta-btn primary">
-                Faire un don
-              </Link>
-              <Link to="/devenir-partenaire" className="cta-btn secondary">
-                Devenir partenaire
-              </Link>
-            </div>
-          </div>
-        </div>
+        <div className="article-cta"></div>
       </div>
 
       {/* Modal Galerie */}

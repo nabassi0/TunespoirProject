@@ -79,15 +79,15 @@ const FAQ = () => {
       category: "donations",
       question: "Comment puis-je faire un don à Tunespoir ?",
       answer:
-        "Vous pouvez faire un don en ligne via notre site web dans la section \"Faire un don\". Nous acceptons les dons ponctuels et les dons mensuels. Tous les dons sont sécurisés et vous recevrez un reçu fiscal vous permettant de bénéficier d'une réduction d'impôt.",
+        'Vous pouvez faire un don en ligne via notre site web dans la section "Faire un don". Nous acceptons les dons ponctuels et les dons mensuels. Tous les dons sont 100 % sécurisés sur des plateformes agréées (Stripe, HelloAsso, PayPal). Les dons sont possibles par CB, PayPal, Apple Pay, Google Pay …\n\nVous pouvez également faire un virement sur notre compte :\nBanque CIC Crédit Mutuel\nAgence CCM Chantilly\n142 Rue du Connetable – 60500 Chantilly – France\nIBAN FR76 1562 9026 2700 0203 6610 133\nBIC CMCIFR2A\n\nComment puis-je faire un don en Tunisie ?\n\nPour les dons en Tunisie, vous pouvez faire un virement sur le RIB ATTIJARI BANK\nAgence Charguia Aeroport\nRIB : 04 124 1910036323541 84 TND\nIBAN : TN 59 04 124 1910036323541 84\nBIC : BSTUTNTT',
     },
-    {
-      id: 9,
-      category: "donations",
-      question: "Mes dons sont-ils déductibles fiscalement ?",
-      answer:
-        "Oui, Tunespoir étant une association reconnue d'intérêt général, vos dons ouvrent droit à une réduction d'impôt de 66% du montant versé dans la limite de 20% de votre revenu imposable. Un reçu fiscal vous sera automatiquement envoyé. ",
-    },
+    // {
+    //   id: 9,
+    //   category: "donations",
+    //   question: "Mes dons sont-ils déductibles fiscalement ?",
+    //   answer:
+    //     "Oui, Tunespoir étant une association reconnue d'intérêt général, vos dons ouvrent droit à une réduction d'impôt de 66% du montant versé dans la limite de 20% de votre revenu imposable. Un reçu fiscal vous sera automatiquement envoyé. ",
+    // },
     {
       id: 10,
       category: "donations",

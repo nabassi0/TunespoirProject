@@ -81,6 +81,12 @@ const Timeline = ({
         "Aide aux familles démunies à Ain Draham Fernana avec collecte et distribution de denrées alimentaires de première nécessité. Achat de matériel médical pour les Hôpitaux Habib Bourguiba (Sfax), Farhat Hached (Sousse) et Tahar Maamouri (Nabeul).",
     },
     {
+      year: "2020-2021",
+      title: "COVID-19 : Réponse d'urgence sanitaire",
+      description:
+        "Tunespoir a fourni des respirateurs et du matériel de protection pour 6 hôpitaux : Ibn Al-Jazzar à Kairouan, La Rabta à Tunis, l'hôpital Sahloul à Sousse, l'hôpital de Nabeul, l'hôpital de Msaken, l'hôpital H. Bourguiba à Sfax pour un total de 83.195 €.",
+    },
+    {
       year: "2021",
       title: "Extension de l'aide hospitalière",
       description:
