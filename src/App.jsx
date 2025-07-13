@@ -19,6 +19,7 @@ import FaireUnDon from "./pages/FaireUnDon";
 import FAQ from "./pages/FAQ";
 import NousContacter from "./pages/NousContacter";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
+import MentionsLegales from "./pages/MentionsLegales";
 
 function App() {
   // Add loading state for page transitions
@@ -60,6 +61,7 @@ function App() {
                 path="/politique-confidentialite"
                 element={<PolitiqueConfidentialite />}
               />
+              <Route path="/mentions-legales" element={<MentionsLegales />} />
             </Routes>
           )}
         </main>
