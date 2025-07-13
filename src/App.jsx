@@ -6,6 +6,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import CookieBanner from "./components/CookieBanner";
 
 // Pages
 import Home from "./pages/Home";
@@ -17,6 +18,7 @@ import NosMissions from "./pages/NosMissions";
 import FaireUnDon from "./pages/FaireUnDon";
 import FAQ from "./pages/FAQ";
 import NousContacter from "./pages/NousContacter";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 
 function App() {
   // Add loading state for page transitions
@@ -54,10 +56,15 @@ function App() {
               <Route path="/faire-un-don" element={<FaireUnDon />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/nous-contacter" element={<NousContacter />} />
+              <Route
+                path="/politique-confidentialite"
+                element={<PolitiqueConfidentialite />}
+              />
             </Routes>
           )}
         </main>
         <Footer />
+        <CookieBanner />
       </div>
     </Router>
   );
