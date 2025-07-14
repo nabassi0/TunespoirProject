@@ -35,16 +35,16 @@ const MentionsLegales = () => {
                   conformément à la loi du 1er juillet 1901
                 </p>
                 <p>
-                  <strong>Numéro RNA :</strong> [À compléter - Numéro
-                  d'inscription au Répertoire National des Associations]
+                  <strong>Numéro RNA :</strong> W923004726
                 </p>
 
                 <p>
-                  <strong>Siège social :</strong> [Adresse du siège social]
+                  <strong>Siège social :</strong> 48 rue de Laborde 75008 Paris
+                  France
                 </p>
 
                 <p>
-                  <strong>Email :</strong> contact@tunespoir.org
+                  <strong>Email :</strong> association.tunespoir@gmail.com
                 </p>
               </div>
             </section>

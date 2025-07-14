@@ -42,6 +42,14 @@ const Header = () => {
     setIsMenuOpen(false);
   }, [location]);
 
+  // Handle nav link click to remove focus
+  const handleNavLinkClick = (e) => {
+    // Remove focus from the clicked element to eliminate the blue outline
+    setTimeout(() => {
+      e.target.blur();
+    }, 100);
+  };
+
   // Conditional class for header background
   const headerClasses = [
     "site-header",
@@ -55,7 +63,7 @@ const Header = () => {
     <header className={headerClasses}>
       <div className="header-container">
         <div className="logo-container">
-          <Link to="/" className="logo-link">
+          <Link to="/" className="logo-link" onClick={handleNavLinkClick}>
             <img
               src={tunespoirLogo}
               alt="Tunespoir Logo"
@@ -70,7 +78,10 @@ const Header = () => {
               <Link
                 to="/"
                 className="mobile-logo-link"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  setIsMenuOpen(false);
+                  handleNavLinkClick(e);
+                }}
               >
                 <img
                   src={tunespoirLogo}
@@ -95,6 +106,7 @@ const Header = () => {
                     className={`nav-link ${
                       location.pathname === link.path ? "active" : ""
                     }`}
+                    onClick={handleNavLinkClick}
                   >
                     {link.name}
                   </Link>
@@ -103,14 +115,22 @@ const Header = () => {
             </ul>
 
             <div className="mobile-nav-footer">
-              <Link to="/faire-un-don" className="btn btn-donate mobile-donate">
+              <Link
+                to="/faire-un-don"
+                className="btn btn-donate mobile-donate"
+                onClick={handleNavLinkClick}
+              >
                 Faire un don
               </Link>
             </div>
           </nav>
 
           <div className="header-actions">
-            <Link to="/faire-un-don" className="btn btn-donate desktop-donate">
+            <Link
+              to="/faire-un-don"
+              className="btn btn-donate desktop-donate"
+              onClick={handleNavLinkClick}
+            >
               Faire un don
             </Link>
 

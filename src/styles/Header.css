@@ -782,3 +782,12 @@
   outline: 2px solid #0c8bc9;
   outline-offset: 2px;
 }
+
+/* Remove focus outline on mouse click but keep it for keyboard navigation */
+.nav-link:focus:not(:focus-visible),
+.btn-donate:focus:not(:focus-visible),
+.mobile-menu-toggle:focus:not(:focus-visible),
+.mobile-close:focus:not(:focus-visible),
+.mobile-logo-link:focus:not(:focus-visible) {
+  outline: none;
+}
